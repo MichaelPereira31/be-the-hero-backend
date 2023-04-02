@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+      "target": "es2018",
+      "experimentalDecorators": true,
+      "emitDecoratorMetadata": true,
+      "module": "commonjs",
+      "baseUrl": "./src",
+      "paths": {
+          "@modules/*": ["modules/*"],
+          "@shared/*": ["shared/*"],
+          "@errors/*": ["errors/*"],
+          "@config/*": ["config/*"]
+      },
+      "resolveJsonModule": true,
+      "outDir": "./dist",
+      "esModuleInterop": true,
+      "forceConsistentCasingInFileNames": true,
+      "skipLibCheck": true,
+      "strictNullChecks": true,
+      "downlevelIteration": true
+  }
+}
