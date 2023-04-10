@@ -9,3 +9,205 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model Address {
+  id                String         @id @default(uuid())
+  street            String
+  number            String
+  neighborhood      String
+  city              String
+  state             DonationStatus @default(opened)
+  complement        String
+  reference         String
+  googleCoordinates String         @map("google_coordinates")
+  createdAt         DateTime       @default(now()) @map("created_at")
+  updatedAt         DateTime       @updatedAt @map("updated_at")
+
+  Ong  Ong[]
+  User User[]
+
+  @@map("address")
+}
+
+model Ong {
+  id             String   @id @default(uuid())
+  name           String
+  description    String
+  objective      String
+  mainPhone      String   @map("main_phone")
+  secondaryPhone String   @map("secondary_phone")
+  mainEmail      String   @map("main_email")
+  secondaryEmail String   @map("secondary_email")
+  address        Address  @relation(fields: [addressId], references: [id])
+  addressId      String
+  createdAt      DateTime @default(now()) @map("created_at")
+  updatedAt      DateTime @updatedAt @map("updated_at")
+
+  Donation Donation[]
+  Vacancy  Vacancy[]
+  Employee Employee[]
+
+  @@map("ong")
+}
+
+model Donation {
+  id          String   @id @default(uuid())
+  title       String
+  description String
+  reason      String
+  goal        String
+  status      String
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+
+  owner   Ong    @relation(fields: [ownerId], references: [id])
+  ownerId String @map("owner_id")
+  Item    Item[]
+
+  @@map("donation")
+}
+
+enum DonationStatus {
+  completed
+  canceled
+  opened
+}
+
+model Item {
+  id              String     @id @default(uuid())
+  title           String
+  description     String
+  reason          String
+  necessaryAmount String     @map("necessary_amount")
+  amountReceived  String     @map("amount_received")
+  status          ItemStutus @default(opened)
+  createdAt       DateTime   @default(now()) @map("created_at")
+  updatedAt       DateTime   @updatedAt @map("updated_at")
+
+  donation   Donation @relation(fields: [donationId], references: [id])
+  donationId String
+
+  @@map("item")
+}
+
+enum ItemStutus {
+  completed
+  canceled
+  opened
+}
+
+model Vacancy {
+  id             String   @id @default(uuid())
+  title          String
+  description    String
+  goal           String
+  role           String
+  numberOfPeople Int
+  createdAt      DateTime @default(now()) @map("created_at")
+  updatedAt      DateTime @updatedAt @map("updated_at")
+
+  owner     Ong         @relation(fields: [ownerId], references: [id])
+  ownerId   String      @map("owner_id")
+  Voluntary Voluntary[]
+
+  @@map("vacancy")
+}
+
+model User {
+  id        String     @id @default(uuid())
+  name      String
+  surname   String
+  email     String
+  password  String
+  status    UserStatus @default(active)
+  type      UserType
+  createdAt DateTime   @default(now()) @map("created_at")
+  updatedAt DateTime   @updatedAt @map("updated_at")
+
+  address   Address     @relation(fields: [addressId], references: [id])
+  addressId String
+  Employee  Employee[]
+  Complaint Complaint[]
+  Voluntary Voluntary[]
+
+  @@map("user")
+}
+
+enum UserStatus {
+  active
+  inactive
+}
+
+enum UserType {
+  ong
+  voluntary
+}
+
+model Employee {
+  id        String         @id @default(uuid())
+  office    EmployeeOffice @default(helper)
+  createdAt DateTime       @default(now()) @map("created_at")
+  updatedAt DateTime       @updatedAt @map("updated_at")
+
+  ong   Ong    @relation(fields: [ongId], references: [id])
+  ongId String
+
+  user   User   @relation(fields: [userId], references: [id])
+  userId String
+
+  @@map("employee")
+}
+
+enum EmployeeOffice {
+  admin
+  helper
+}
+
+model Complaint {
+  id          String          @id @default(uuid())
+  file        String
+  title       String
+  reason      ComplaintReason
+  description String
+  createdAt   DateTime        @default(now()) @map("created_at")
+  updatedAt   DateTime        @updatedAt @map("updated_at")
+
+  user   User   @relation(fields: [userId], references: [id])
+  userId String
+
+  @@map("complaint")
+}
+
+enum ComplaintReason {
+  ong
+  open
+  voluntary
+  donation
+  vacancy
+}
+
+model Voluntary {
+  id                  String          @id @default(uuid())
+  code                String
+  avaliation          String
+  note                Int
+  status              VoluntaryStatus
+  initialAvailability DateTime
+  finalAvailability   DateTime
+
+  user   User   @relation(fields: [userId], references: [id])
+  userId String
+
+  vancancy  Vacancy @relation(fields: [vacancyId], references: [id])
+  vacancyId String
+
+  @@map("voluntary")
+}
+
+enum VoluntaryStatus {
+  accepted
+  waiting
+  canceled
+  expired
+  concluded
+}
