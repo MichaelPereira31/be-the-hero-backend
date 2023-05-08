@@ -79,6 +79,7 @@ CREATE TABLE "item" (
     "status" "ItemStutus" NOT NULL DEFAULT 'opened',
     "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updated_at" TIMESTAMP(3) NOT NULL,
+    "donationId" TEXT NOT NULL,
 
     CONSTRAINT "item_pkey" PRIMARY KEY ("id")
 );
@@ -102,7 +103,7 @@ CREATE TABLE "vacancy" (
 CREATE TABLE "user" (
     "id" TEXT NOT NULL,
     "name" TEXT NOT NULL,
-    "surname" TEXT NOT NULL,
+    "last_name" TEXT NOT NULL,
     "email" TEXT NOT NULL,
     "password" TEXT NOT NULL,
     "status" "UserStatus" NOT NULL DEFAULT 'active',
@@ -149,15 +150,23 @@ CREATE TABLE "voluntary" (
     "status" "VoluntaryStatus" NOT NULL,
     "initialAvailability" TIMESTAMP(3) NOT NULL,
     "finalAvailability" TIMESTAMP(3) NOT NULL,
+    "userId" TEXT NOT NULL,
+    "vacancyId" TEXT NOT NULL,
 
     CONSTRAINT "voluntary_pkey" PRIMARY KEY ("id")
 );
+
+-- CreateIndex
+CREATE UNIQUE INDEX "user_email_key" ON "user"("email");
 
 -- AddForeignKey
 ALTER TABLE "ong" ADD CONSTRAINT "ong_addressId_fkey" FOREIGN KEY ("addressId") REFERENCES "address"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE "donation" ADD CONSTRAINT "donation_owner_id_fkey" FOREIGN KEY ("owner_id") REFERENCES "ong"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "item" ADD CONSTRAINT "item_donationId_fkey" FOREIGN KEY ("donationId") REFERENCES "donation"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE "vacancy" ADD CONSTRAINT "vacancy_owner_id_fkey" FOREIGN KEY ("owner_id") REFERENCES "ong"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
@@ -173,3 +182,9 @@ ALTER TABLE "employee" ADD CONSTRAINT "employee_userId_fkey" FOREIGN KEY ("userI
 
 -- AddForeignKey
 ALTER TABLE "complaint" ADD CONSTRAINT "complaint_userId_fkey" FOREIGN KEY ("userId") REFERENCES "user"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "voluntary" ADD CONSTRAINT "voluntary_userId_fkey" FOREIGN KEY ("userId") REFERENCES "user"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "voluntary" ADD CONSTRAINT "voluntary_vacancyId_fkey" FOREIGN KEY ("vacancyId") REFERENCES "vacancy"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
