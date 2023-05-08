@@ -18,7 +18,7 @@ const createUserController = new CreateUserController();
 const updateUserController = new UpdateUserController();
 const deleteUserController = new DeleteUserController();
 
-userRoutes.get('/:id', isAuthenticate, findUserByIdController.handle);
+userRoutes.get('/', isAuthenticate, findUserByIdController.handle);
 
 userRoutes.get(
   '/type/:userType',
@@ -30,7 +30,7 @@ userRoutes.post('/authenticate', authenticateUserController.handle);
 
 userRoutes.post('/', createUserController.handle);
 
-userRoutes.put('/:id', isAuthenticate, updateUserController.handle);
+userRoutes.put('/', isAuthenticate, updateUserController.handle);
 
 userRoutes.delete('/', isAuthenticate, deleteUserController.handle);
 
