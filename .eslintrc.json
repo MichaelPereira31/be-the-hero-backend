@@ -21,6 +21,7 @@
     "prettier"
   ],
   "rules": {
+    "import/no-extraneous-dependencies": "off",
     "import/no-unresolved": [
       "error",
       {
@@ -36,7 +37,9 @@
     "lines-between-class-members": [
       "error",
       "always",
-      { "exceptAfterSingleLine": true }
+      {
+        "exceptAfterSingleLine": true
+      }
     ],
     "class-methods-use-this": "off",
     "no-return-await": "off",
@@ -97,15 +100,6 @@
         ],
         "format": [
           "PascalCase"
-        ]
-      }
-    ],
-    "import/no-extraneous-dependencies": [
-      "error",
-      {
-        "devDependencies": [
-          "**/*.spec.ts",
-          "jest.config.ts"
         ]
       }
     ]

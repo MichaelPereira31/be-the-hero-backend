@@ -116,8 +116,8 @@ model Vacancy {
 model User {
   id        String     @id @default(uuid())
   name      String
-  surname   String
-  email     String
+  lastName  String     @map("last_name")
+  email     String     @unique
   password  String
   status    UserStatus @default(active)
   type      UserType
