@@ -5,5 +5,5 @@ export type ICreateUserDTO = {
   password: string;
   status: 'ong' | 'voluntary';
   type: 'active' | 'inactive';
-  addressId: string;
+  addressId?: string;
 };

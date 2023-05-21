@@ -110,7 +110,7 @@ CREATE TABLE "user" (
     "type" "UserType" NOT NULL,
     "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updated_at" TIMESTAMP(3) NOT NULL,
-    "addressId" TEXT NOT NULL,
+    "addressId" TEXT,
 
     CONSTRAINT "user_pkey" PRIMARY KEY ("id")
 );
@@ -172,7 +172,7 @@ ALTER TABLE "item" ADD CONSTRAINT "item_donationId_fkey" FOREIGN KEY ("donationI
 ALTER TABLE "vacancy" ADD CONSTRAINT "vacancy_owner_id_fkey" FOREIGN KEY ("owner_id") REFERENCES "ong"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "user" ADD CONSTRAINT "user_addressId_fkey" FOREIGN KEY ("addressId") REFERENCES "address"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "user" ADD CONSTRAINT "user_addressId_fkey" FOREIGN KEY ("addressId") REFERENCES "address"("id") ON DELETE SET NULL ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE "employee" ADD CONSTRAINT "employee_ongId_fkey" FOREIGN KEY ("ongId") REFERENCES "ong"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
