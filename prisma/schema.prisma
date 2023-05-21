@@ -124,8 +124,8 @@ model User {
   createdAt DateTime   @default(now()) @map("created_at")
   updatedAt DateTime   @updatedAt @map("updated_at")
 
-  address   Address     @relation(fields: [addressId], references: [id])
-  addressId String
+  address   Address?     @relation(fields: [addressId], references: [id])
+  addressId String?
   Employee  Employee[]
   Complaint Complaint[]
   Voluntary Voluntary[]
