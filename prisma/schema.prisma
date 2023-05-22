@@ -114,17 +114,17 @@ model Vacancy {
 }
 
 model User {
-  id        String     @id @default(uuid())
-  name      String
-  lastName  String     @map("last_name")
-  email     String     @unique
-  password  String
-  status    UserStatus @default(active)
-  type      UserType
-  createdAt DateTime   @default(now()) @map("created_at")
-  updatedAt DateTime   @updatedAt @map("updated_at")
+  id        String      @id @default(uuid())
+  name      String?
+  lastName  String?     @map("last_name")
+  email     String?     @unique
+  password  String?
+  status    UserStatus? @default(active)
+  type      UserType?
+  createdAt DateTime    @default(now()) @map("created_at")
+  updatedAt DateTime    @updatedAt @map("updated_at")
 
-  address   Address?     @relation(fields: [addressId], references: [id])
+  address   Address?    @relation(fields: [addressId], references: [id])
   addressId String?
   Employee  Employee[]
   Complaint Complaint[]
