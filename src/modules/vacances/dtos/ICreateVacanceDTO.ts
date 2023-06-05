@@ -3,7 +3,6 @@ export type ICreateVacanceDTO = {
   description: string;
   goal: string;
   role: string;
-  numberOfPeople: Float32Array;
+  numberOfPeople: number;
   ownerId: string;
-  voluntary: string;
 };
