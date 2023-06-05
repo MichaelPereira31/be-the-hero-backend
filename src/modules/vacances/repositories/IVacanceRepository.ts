@@ -31,4 +31,10 @@ export class VacanceRepository implements IVacanceRepository {
     });
     return vacance;
   }
+
+  async findById(id: string): Promise<Vacancy | null> {
+    const ong = await this.cxt.prisma.vacancy.findUnique({ where: { id } });
+
+    return ong;
+  }
 }
