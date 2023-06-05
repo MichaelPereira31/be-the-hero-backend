@@ -7,3 +7,5 @@ const vacanceRoutes = Router();
 const createVacanceController = new CreateVacanceController();
 
 vacanceRoutes.post('/', createVacanceController.handle);
+
+export { vacanceRoutes };

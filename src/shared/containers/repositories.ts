@@ -15,7 +15,7 @@ container.registerSingleton<IAddressRepository>(
   AddressRepository,
 );
 container.registerSingleton<IOngRepository>('OngRepository', OngRepository);
-container.registerInstance<IVacanceRepository>(
+container.registerSingleton<IVacanceRepository>(
   'VacanceRepository',
   VacanceRepository,
 );
