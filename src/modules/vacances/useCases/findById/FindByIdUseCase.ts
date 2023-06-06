@@ -1,6 +1,6 @@
 import { inject, injectable } from 'tsyringe';
 
-import { VacanceRepository } from '@modules/vacances/repositories/IVacanceRepository';
+import { VacanceRepository } from '@modules/vacances/repositories/implementations/VacanceRepository';
 import { Vacancy } from '@prisma/client';
 import { AppError } from '@shared/infra/errors/AppError';
 

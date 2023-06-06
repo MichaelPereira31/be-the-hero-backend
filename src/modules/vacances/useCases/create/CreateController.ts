@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import { container } from 'tsyringe';
 
-import { CreateVacanceUseCase } from './CreateVacanceUseCase';
+import { CreateVacanceUseCase } from './CreateUseCase';
 
 export class CreateVacanceController {
   async handle(request: Request, response: Response): Promise<Response> {

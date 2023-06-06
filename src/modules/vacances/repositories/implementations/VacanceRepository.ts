@@ -1,7 +1,46 @@
 import { ICreateVacanceDTO } from '@modules/vacances/dtos/ICreateVacanceDTO';
 import { Vacancy } from '@prisma/client';
+import prismaClient from '@shared/infra/database';
 
-export type IVacanceRepository = {
-  createVacance(params: ICreateVacanceDTO): Promise<Vacancy>;
-  findById(id: string): Promise<Vacancy | null>;
-};
+import { IVacanceRepository } from '../IVacanceRepository';
+
+export class VacanceRepository implements IVacanceRepository {
+  constructor(
+    private readonly cxt = {
+      prisma: prismaClient,
+    },
+  ) {}
+
+  async createVacance({
+    title,
+    description,
+    goal,
+    role,
+    numberOfPeople,
+    ownerId,
+  }: ICreateVacanceDTO): Promise<Vacancy> {
+    const vacance = await this.cxt.prisma.vacancy.create({
+      data: {
+        title,
+        description,
+        goal,
+        role,
+        numberOfPeople,
+        ownerId,
+      },
+    });
+    return vacance;
+  }
+
+  async findById(id: string): Promise<Vacancy | null> {
+    const ong = await this.cxt.prisma.vacancy.findUnique({ where: { id } });
+
+    return ong;
+  }
+
+  async returnsAll(): Promise<Vacancy[]> {
+    const vacances = await this.cxt.prisma.vacancy.findMany({});
+
+    return vacances;
+  }
+}
