@@ -1,13 +1,13 @@
 import { inject, injectable } from 'tsyringe';
 
 import { IUpdateVacanceDTO } from '@modules/vacances/dtos/IUpdateVacanceDTO';
-import { VacanceRepository } from '@modules/vacances/repositories/implementations/VacanceRepository';
+import { IVacanceRepository } from '@modules/vacances/repositories/IVacanceRepository';
 
 @injectable()
 export class UpdateVacanceUseCase {
   constructor(
     @inject('VacanceRepository')
-    private readonly vacanceRepository: VacanceRepository,
+    private readonly vacanceRepository: IVacanceRepository,
   ) {}
 
   async execute({

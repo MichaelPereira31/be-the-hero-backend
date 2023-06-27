@@ -80,7 +80,7 @@ model Item {
   reason          String
   necessaryAmount String     @map("necessary_amount")
   amountReceived  String     @map("amount_received")
-  status          ItemStutus @default(opened)
+  status          ItemStatus @default(opened)
   createdAt       DateTime   @default(now()) @map("created_at")
   updatedAt       DateTime   @updatedAt @map("updated_at")
 
@@ -90,7 +90,7 @@ model Item {
   @@map("item")
 }
 
-enum ItemStutus {
+enum ItemStatus {
   completed
   canceled
   opened
