@@ -1,6 +1,7 @@
 import { Router } from 'express';
 
 import { addressRoutes } from './address.routes';
+import { donationRoutes } from './donation.routes';
 import { ongRoutes } from './ong.routes';
 import { userRoutes } from './user.routes';
 import { vacanceRoutes } from './vacance.routes';
@@ -13,5 +14,6 @@ router.use('/address', addressRoutes);
 router.use('/ong', ongRoutes);
 router.use('/vacance', vacanceRoutes);
 router.use('/volunteer', volunteerRoutes);
+router.use('/donation', donationRoutes);
 
 export { router };
