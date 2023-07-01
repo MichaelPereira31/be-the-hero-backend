@@ -1,4 +1,4 @@
-export type IUpdateVolunteerDTO = {
+export type IUpdateVoluntaryDTO = {
   id: string;
   code?: string;
   avaliation?: string;

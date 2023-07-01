@@ -3,7 +3,7 @@ import { container } from 'tsyringe';
 
 import { DeleteAddressUseCase } from '@modules/address/useCases/delete/DeleteAddressUseCase';
 
-export class DeleteVolunteerController {
+export class DeleteVoluntaryController {
   async handle(request: Request, response: Response): Promise<Response> {
     const { id } = request.params;
 
@@ -12,7 +12,7 @@ export class DeleteVolunteerController {
     await deleteAddressUseCase.execute(id);
 
     return response.status(200).json({
-      message: 'Volunteer sucessfully deleted',
+      message: 'Voluntary sucessfully deleted',
     });
   }
 }

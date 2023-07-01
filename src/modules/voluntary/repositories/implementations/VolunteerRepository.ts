@@ -1,25 +1,25 @@
-import { ICreateVolunteerDTO } from '@modules/volunteer/dtos/ICreateVolunteerDTO';
-import { IUpdateVolunteerDTO } from '@modules/volunteer/dtos/IUpdateVolunteerDTO';
+import { ICreateVoluntaryDTO } from '@modules/voluntary/dtos/ICreateVoluntaryDTO';
+import { IUpdateVoluntaryDTO } from '@modules/voluntary/dtos/IUpdateVoluntaryDTO';
 import { Voluntary } from '@prisma/client';
 import prismaClient from '@shared/infra/database';
 
-import { IVolunteerRepository } from '../IVolunteerRepository';
+import { IVoluntaryRepository } from '../IVoluntaryRepository';
 
-export class VacanceRepository implements IVolunteerRepository {
+export class VacanceRepository implements IVoluntaryRepository {
   constructor(private readonly cxt = { prisma: prismaClient }) {}
 
   async returnAll(): Promise<Voluntary[]> {
-    const volunteers = await this.cxt.prisma.voluntary.findMany({});
+    const voluntarys = await this.cxt.prisma.voluntary.findMany({});
 
-    return volunteers;
+    return voluntarys;
   }
 
   async findById(id: string): Promise<Voluntary | null> {
-    const volunteer = await this.cxt.prisma.voluntary.findUnique({
+    const voluntary = await this.cxt.prisma.voluntary.findUnique({
       where: { id },
     });
 
-    return volunteer;
+    return voluntary;
   }
 
   async delete(id: string): Promise<void> {
@@ -37,8 +37,8 @@ export class VacanceRepository implements IVolunteerRepository {
     vacancyId,
     initialAvailability,
     finalAvailability,
-  }: ICreateVolunteerDTO): Promise<Voluntary> {
-    const volunteer = await this.cxt.prisma.voluntary.create({
+  }: ICreateVoluntaryDTO): Promise<Voluntary> {
+    const voluntary = await this.cxt.prisma.voluntary.create({
       data: {
         code,
         avaliation,
@@ -51,7 +51,7 @@ export class VacanceRepository implements IVolunteerRepository {
       },
     });
 
-    return volunteer;
+    return voluntary;
   }
 
   async update({
@@ -64,8 +64,8 @@ export class VacanceRepository implements IVolunteerRepository {
     vacancyId,
     initialAvailability,
     finalAvailability,
-  }: IUpdateVolunteerDTO): Promise<Voluntary> {
-    const volunteer = await this.cxt.prisma.voluntary.update({
+  }: IUpdateVoluntaryDTO): Promise<Voluntary> {
+    const voluntary = await this.cxt.prisma.voluntary.update({
       where: { id },
       data: {
         code,
@@ -79,6 +79,6 @@ export class VacanceRepository implements IVolunteerRepository {
       },
     });
 
-    return volunteer;
+    return voluntary;
   }
 }

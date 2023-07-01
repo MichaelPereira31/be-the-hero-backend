@@ -1,9 +1,9 @@
 import { Request, Response } from 'express';
 import { container } from 'tsyringe';
 
-import { CreateVolunteerUseCase } from './CreateVolunteerUsecase';
+import { CreateVoluntaryUseCase } from './CreateVoluntaryUsecase';
 
-export class CreateVolunteerController {
+export class CreateVoluntaryController {
   async handle(request: Request, response: Response): Promise<Response> {
     const {
       code,
@@ -16,9 +16,9 @@ export class CreateVolunteerController {
       finalAvailability,
     } = request.body;
 
-    const createVolunteerUseCase = container.resolve(CreateVolunteerUseCase);
+    const createVoluntaryUseCase = container.resolve(CreateVoluntaryUseCase);
 
-    const volunteer = await createVolunteerUseCase.execute({
+    const Voluntary = await createVoluntaryUseCase.execute({
       code,
       avaliation,
       note,
@@ -29,6 +29,6 @@ export class CreateVolunteerController {
       finalAvailability,
     });
 
-    return response.status(200).json(volunteer);
+    return response.status(200).json(Voluntary);
   }
 }
