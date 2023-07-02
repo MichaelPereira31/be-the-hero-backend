@@ -80,7 +80,7 @@ model Item {
   reason          String
   necessaryAmount String     @map("necessary_amount")
   amountReceived  String     @map("amount_received")
-  status          ItemStutus @default(opened)
+  status          ItemStatus @default(opened)
   createdAt       DateTime   @default(now()) @map("created_at")
   updatedAt       DateTime   @updatedAt @map("updated_at")
 
@@ -90,7 +90,7 @@ model Item {
   @@map("item")
 }
 
-enum ItemStutus {
+enum ItemStatus {
   completed
   canceled
   opened
@@ -126,7 +126,6 @@ model User {
 
   address   Address?    @relation(fields: [addressId], references: [id])
   addressId String?
-  Employee  Employee[]
   Complaint Complaint[]
   Voluntary Voluntary[]
 
@@ -152,8 +151,8 @@ model Employee {
   ong   Ong    @relation(fields: [ongId], references: [id])
   ongId String
 
-  user   User   @relation(fields: [userId], references: [id])
-  userId String
+  voluntary   Voluntary @relation(fields: [voluntaryId], references: [id])
+  voluntaryId String
 
   @@map("employee")
 }
@@ -165,7 +164,7 @@ enum EmployeeOffice {
 
 model Complaint {
   id          String          @id @default(uuid())
-  file        String
+  file        String?
   title       String
   reason      ComplaintReason
   description String
@@ -198,8 +197,9 @@ model Voluntary {
   user   User   @relation(fields: [userId], references: [id])
   userId String
 
-  vancancy  Vacancy @relation(fields: [vacancyId], references: [id])
+  vancancy  Vacancy    @relation(fields: [vacancyId], references: [id])
   vacancyId String
+  Employee  Employee[]
 
   @@map("voluntary")
 }
