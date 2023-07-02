@@ -11,7 +11,8 @@
     "lint:staged": "lint-staged",
     "lint": "eslint . --fix",
     "prepare": "husky install",
-    "test": "jest --runInBand --detectOpenHandles --passWithNoTests"
+    "test": "jest --runInBand --detectOpenHandles --passWithNoTests",
+    "build": "tsc && tsc-alias"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.5.1",
