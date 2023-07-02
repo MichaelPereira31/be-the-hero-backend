@@ -6,12 +6,12 @@
   "author": "Michael Pereira <michael.pereira@chat2desk.com.br>",
   "license": "MIT",
   "scripts": {
-    "dev": "tsnd -r tsconfig-paths/register --exit-child --transpile-only --ignore-watch node_modules --respawn src/shared/infra/http/server.ts",
+    "vercel-build":"npx prisma migrate deploy",
+    "dev": "tsnd --transpile-only --ignore-watch node_modules --respawn --exit-child src/shared/infra/http/server.ts",
     "lint:staged": "lint-staged",
     "lint": "eslint . --fix",
     "prepare": "husky install",
-    "test": "jest --runInBand --detectOpenHandles --passWithNoTests",
-    "vercel-build":"npx prisma migrate deploy"
+    "test": "jest --runInBand --detectOpenHandles --passWithNoTests"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.5.1",
