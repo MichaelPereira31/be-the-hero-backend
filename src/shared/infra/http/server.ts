@@ -22,10 +22,9 @@ app.use((req, res, next) => {
 });
 app.use(cors());
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(responseFormatter);
 app.use(router);
 app.use(getErrors);
 
-app.listen(process.env.PORT, () =>
-  logger.info('Server is running on port 3333'),
-);
+app.listen(3333, () => logger.info('Server is running on port 3333'));
