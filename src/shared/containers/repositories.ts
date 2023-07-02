@@ -4,6 +4,8 @@ import { IAddressRepository } from '@modules/address/repositories/IAddressReposi
 import { AddressRepository } from '@modules/address/repositories/implementations/AddressRepository';
 import { IComplaintRepository } from '@modules/complaint/repositories/IComplaintRepository';
 import { ComplaintRepository } from '@modules/complaint/repositories/implementations/ComplaintRepository';
+import { IDonationRepository } from '@modules/donation/repositories/IDonationRepository';
+import { DonationRepository } from '@modules/donation/repositories/implementations/DonationRepository';
 import { IEmployeeRepository } from '@modules/employee/repositories/IEmployeeRepository';
 import { EmployeeRepository } from '@modules/employee/repositories/implementations/EmployeeRepository';
 import { IItemRepository } from '@modules/item/repositories/IItemRepository';
@@ -33,4 +35,8 @@ container.registerSingleton<IItemRepository>('ItemRepository', ItemRepository);
 container.registerSingleton<IVoluntaryRepository>(
   'VoluntaryRepository',
   VoluntaryRepository,
+);
+container.registerSingleton<IDonationRepository>(
+  'DonationRepository',
+  DonationRepository,
 );
