@@ -1,20 +1,21 @@
-import cors from 'cors';
+// import cors from 'cors';
 import * as dotenv from 'dotenv';
 import 'reflect-metadata';
 import 'express-async-errors';
 import express from 'express';
 
-import '../../containers';
 import { logger } from '@shared/providers/logger/implementations/LoggerProvider';
 
 import { getErrors } from '../errors/getErrors';
 import responseFormatter from './middlewares/responseFormatter';
 import { router } from './routes';
+import '../../containers';
 
 dotenv.config();
 
 const app = express();
-app.use(cors({ origin: '*' }));
+
+// app.use(cors({ origin: '*' }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(responseFormatter);

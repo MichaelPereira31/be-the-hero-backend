@@ -6,7 +6,8 @@ import { AppError } from '@shared/infra/errors/AppError';
 @injectable()
 export class DeleteAddressUseCase {
   constructor(
-    @inject('AddressRepository') readonly addressRepository: IAddressRepository,
+    @inject('AddressRepository')
+    private readonly addressRepository: IAddressRepository,
   ) {}
 
   async execute(id: string) {

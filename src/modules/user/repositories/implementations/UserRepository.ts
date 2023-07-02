@@ -1,7 +1,7 @@
 import { ICreateUserDTO } from '@modules/user/dtos/ICreateUserDTO';
 import { ITypeUserDTO } from '@modules/user/dtos/ITypeUserDTO';
 import { IUpdateUserDTO } from '@modules/user/dtos/IUpdateUserDTO';
-import { User, UserStatus, UserType } from '@prisma/client';
+import { User } from '@prisma/client';
 import prismaClient from '@shared/infra/database';
 
 import { IUserRepository } from '../IUserRepository';
@@ -27,8 +27,8 @@ export class UserRepository implements IUserRepository {
   async createUser({
     name,
     lastName,
-    status = 'ong',
-    type = 'active',
+    status,
+    type,
     email,
     password,
     addressId,
@@ -37,8 +37,8 @@ export class UserRepository implements IUserRepository {
       data: {
         name,
         lastName,
-        status: UserStatus[status],
-        type: UserType[type],
+        status,
+        type,
         email,
         password,
         addressId,

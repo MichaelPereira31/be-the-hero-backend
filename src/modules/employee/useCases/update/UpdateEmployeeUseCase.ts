@@ -15,7 +15,7 @@ export class UpdateEmployeeUseCase {
   async execute({
     office,
     ongId,
-    userId,
+    voluntaryId,
     id,
   }: IUpdateEmployeeDTO): Promise<Employee> {
     const employee = await this.employeeRepository.findById(id);
@@ -27,7 +27,7 @@ export class UpdateEmployeeUseCase {
       id,
       office,
       ongId,
-      userId,
+      voluntaryId,
     });
 
     return updateEmployee;

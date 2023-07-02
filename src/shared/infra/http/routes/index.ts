@@ -6,6 +6,7 @@ import { donationRoutes } from './donation.routes';
 import { employeeRoutes } from './employee.routes';
 import { ongRoutes } from './ong.routes';
 import { userRoutes } from './user.routes';
+import { vacancyRoutes } from './vacancy.routes';
 import { voluntaryRoutes } from './voluntary.routes';
 
 const router = Router();
@@ -17,5 +18,6 @@ router.use('/complaint', complaintRoutes);
 router.use('/employee', employeeRoutes);
 router.use('/voluntary', voluntaryRoutes);
 router.use('/donation', donationRoutes);
+router.use('/vacancy', vacancyRoutes);
 
 export { router };

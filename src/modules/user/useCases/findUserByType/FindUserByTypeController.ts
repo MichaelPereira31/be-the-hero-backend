@@ -1,6 +1,8 @@
 import { Request, Response } from 'express';
 import { container } from 'tsyringe';
 
+import { UserType } from '@prisma/client';
+
 import { FindUserByTypeUseCase } from './FindUserByTypeUseCase';
 
 export class FindUserByTypeController {
@@ -9,7 +11,7 @@ export class FindUserByTypeController {
 
     const findUserByTypeUseCase = container.resolve(FindUserByTypeUseCase);
 
-    const users = await findUserByTypeUseCase.execute(userType);
+    const users = await findUserByTypeUseCase.execute(userType as UserType);
 
     return response.status(200).json(users);
   }

@@ -8,8 +8,9 @@ import { Address } from '@prisma/client';
 @injectable()
 export class CreateAddressUseCase {
   constructor(
-    @inject('AddressRepository') readonly addressRepository: IAddressRepository,
-    @inject('UserRepository') readonly userRepository: IUserRepository,
+    @inject('AddressRepository')
+    private readonly addressRepository: IAddressRepository,
+    @inject('UserRepository') private readonly userRepository: IUserRepository,
   ) {}
 
   async execute({

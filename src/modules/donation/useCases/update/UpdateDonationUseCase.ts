@@ -8,7 +8,7 @@ import { AppError } from '@shared/infra/errors/AppError';
 export class UpdateDonationUseCase {
   constructor(
     @inject('DonationRepository')
-    readonly donationRepository: IDonationRepository,
+    private readonly donationRepository: IDonationRepository,
   ) {}
 
   async execute({

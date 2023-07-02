@@ -7,13 +7,11 @@ import { UserType } from '@prisma/client';
 export class FindUserByTypeUseCase {
   constructor(
     @inject('UserRepository')
-    private readonly userRespository: IUserRepository,
+    private readonly userRepository: IUserRepository,
   ) {}
 
-  async execute(userType: any) {
-    const type = UserType[userType || 'ong'];
-
-    const users = await this.userRespository.findUsersByType({ type });
+  async execute(userType: UserType) {
+    const users = await this.userRepository.findUsersByType({ type: userType });
 
     return users;
   }

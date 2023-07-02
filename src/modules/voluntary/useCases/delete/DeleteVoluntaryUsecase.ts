@@ -7,7 +7,7 @@ import { AppError } from '@shared/infra/errors/AppError';
 export class DeleteVoluntaryUseCase {
   constructor(
     @inject('VoluntaryRepository')
-    readonly voluntaryRepository: IVoluntaryRepository,
+    private readonly voluntaryRepository: IVoluntaryRepository,
   ) {}
 
   async execute(id: string) {

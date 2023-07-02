@@ -14,6 +14,8 @@ import { OngRepository } from '@modules/ong/repository/implementations/OngReposi
 import { IOngRepository } from '@modules/ong/repository/IOngRepository';
 import { UserRepository } from '@modules/user/repositories/implementations/UserRepository';
 import { IUserRepository } from '@modules/user/repositories/IUserRepository';
+import { VacancyRepository } from '@modules/vacancy/repositories/implementations/VacancyRepository';
+import { IVacancyRepository } from '@modules/vacancy/repositories/IVacancyRepository';
 import { VoluntaryRepository } from '@modules/voluntary/repositories/implementations/VoluntaryRepository';
 import { IVoluntaryRepository } from '@modules/voluntary/repositories/IVoluntaryRepository';
 
@@ -39,4 +41,8 @@ container.registerSingleton<IVoluntaryRepository>(
 container.registerSingleton<IDonationRepository>(
   'DonationRepository',
   DonationRepository,
+);
+container.registerSingleton<IVacancyRepository>(
+  'VacancyRepository',
+  VacancyRepository,
 );

@@ -7,7 +7,7 @@ import { Donation } from '@prisma/client';
 export class FindAllDonationUseCase {
   constructor(
     @inject('DonationRepository')
-    readonly donationRepository: IDonationRepository,
+    private readonly donationRepository: IDonationRepository,
   ) {}
 
   async execute(): Promise<Donation[]> {

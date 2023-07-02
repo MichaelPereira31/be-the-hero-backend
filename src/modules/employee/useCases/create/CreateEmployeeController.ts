@@ -5,13 +5,13 @@ import { CreateEmployeeUseCase } from './CreateEmployeeUseCase';
 
 export class CreateEmployeeController {
   async handle(request: Request, response: Response): Promise<Response> {
-    const { office, userId, ongId } = request.body;
+    const { office, voluntaryId, ongId } = request.body;
 
     const createEmployeeUseCase = container.resolve(CreateEmployeeUseCase);
 
     const employee = await createEmployeeUseCase.execute({
       office,
-      userId,
+      voluntaryId,
       ongId,
     });
 

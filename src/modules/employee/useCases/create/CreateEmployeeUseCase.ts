@@ -14,12 +14,12 @@ export class CreateEmployeeUseCase {
   async execute({
     office,
     ongId,
-    userId,
+    voluntaryId,
   }: ICreateEmployeeDTO): Promise<Employee> {
     const employee = await this.employeeRepository.create({
       office,
       ongId,
-      userId,
+      voluntaryId,
     });
 
     return employee;

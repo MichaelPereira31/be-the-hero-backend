@@ -8,7 +8,7 @@ import { AppError } from '@shared/infra/errors/AppError';
 export class FindAllVoluntaryUseCase {
   constructor(
     @inject('VoluntaryRepository')
-    readonly voluntaryRepository: IVoluntaryRepository,
+    private readonly voluntaryRepository: IVoluntaryRepository,
   ) {}
 
   async execute(): Promise<Voluntary[]> {

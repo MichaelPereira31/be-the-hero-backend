@@ -1,6 +1,6 @@
 import { ICreateAddressDTO } from '@modules/address/dtos/ICreateAddressDTO';
 import { IUpdateAddressDTO } from '@modules/address/dtos/IUpdateAddressDTO';
-import { Address, DonationStatus } from '@prisma/client';
+import { Address } from '@prisma/client';
 import prismaClient from '@shared/infra/database';
 
 import { IAddressRepository } from '../IAddressRepository';
@@ -30,7 +30,7 @@ export class AddressRepository implements IAddressRepository {
         number,
         neighborhood,
         city,
-        state: DonationStatus[state],
+        state,
         complement,
         reference,
         googleCoordinates,
@@ -58,7 +58,7 @@ export class AddressRepository implements IAddressRepository {
         number,
         neighborhood,
         city,
-        state: DonationStatus[state as string],
+        state,
         complement,
         reference,
         googleCoordinates,
