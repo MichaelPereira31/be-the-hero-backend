@@ -1,14 +1,19 @@
+import * as dotenv from 'dotenv';
 import 'reflect-metadata';
 import 'express-async-errors';
-import cors from 'cors';
 import express from 'express';
 
 import '../../containers';
 import { logger } from '@shared/providers/logger/implementations/LoggerProvider';
 
+// eslint-disable-next-line import-helpers/order-imports
+import cors from 'cors';
+
 import { getErrors } from '../errors/getErrors';
 import responseFormatter from './middlewares/responseFormatter';
 import { router } from './routes';
+
+dotenv.config();
 
 const app = express();
 app.use((req, res, next) => {
