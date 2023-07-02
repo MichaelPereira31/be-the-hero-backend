@@ -2,11 +2,10 @@
 import jwt from 'jsonwebtoken';
 import { inject, injectable } from 'tsyringe';
 
-import authConfig from '@config/auth';
-import { IAuthenticateDTO } from '@modules/user/dtos/IAuthenticateDTO';
-
+import authConfig from '../../../../config/auth';
 import { AppError } from '../../../../shared/infra/errors/AppError';
 import { decrypt } from '../../../../shared/utils/decrypt';
+import { IAuthenticateDTO } from '../../dtos/IAuthenticateDTO';
 import { UserRepository } from '../../repositories/implementations/UserRepository';
 
 @injectable()

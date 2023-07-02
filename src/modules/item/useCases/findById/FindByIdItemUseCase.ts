@@ -2,7 +2,8 @@ import { inject, injectable } from 'tsyringe';
 
 import { IItemRepository } from '@modules/item/repositories/IItemRepository';
 import { Item } from '@prisma/client';
-import { AppError } from '@shared/infra/errors/AppError';
+
+import { AppError } from '../../../../shared/infra/errors/AppError';
 
 @injectable()
 export class FindByIdItemUseCase {

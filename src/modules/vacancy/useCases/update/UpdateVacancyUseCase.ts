@@ -1,8 +1,8 @@
 import { inject, injectable } from 'tsyringe';
 
-import { IUpdateVacancyDTO } from '@modules/vacancy/dtos/IUpdateVacancyDTO';
-import { IVacancyRepository } from '@modules/vacancy/repositories/IVacancyRepository';
-import { AppError } from '@shared/infra/errors/AppError';
+import { AppError } from '../../../../shared/infra/errors/AppError';
+import { IUpdateVacancyDTO } from '../../dtos/IUpdateVacancyDTO';
+import { IVacancyRepository } from '../../repositories/IVacancyRepository';
 
 @injectable()
 export class UpdateVacancyUseCase {

@@ -1,7 +1,7 @@
 import { inject, injectable } from 'tsyringe';
 
-import { IComplaintRepository } from '@modules/complaint/repositories/IComplaintRepository';
-import { AppError } from '@shared/infra/errors/AppError';
+import { AppError } from '../../../../shared/infra/errors/AppError';
+import { IComplaintRepository } from '../../repositories/IComplaintRepository';
 
 @injectable()
 export class DeleteComplaintUseCase {

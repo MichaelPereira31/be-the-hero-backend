@@ -1,8 +1,9 @@
 import { inject, injectable } from 'tsyringe';
 
-import { IVacancyRepository } from '@modules/vacancy/repositories/IVacancyRepository';
 import { Vacancy } from '@prisma/client';
-import { AppError } from '@shared/infra/errors/AppError';
+
+import { AppError } from '../../../../shared/infra/errors/AppError';
+import { IVacancyRepository } from '../../repositories/IVacancyRepository';
 
 @injectable()
 export class FindAllVacanciesUseCase {

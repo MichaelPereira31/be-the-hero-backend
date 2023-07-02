@@ -1,9 +1,9 @@
 import { Router } from 'express';
 
-import { CreateEmployeeController } from '@modules/employee/useCases/create/CreateEmployeeController';
-import { DeleteEmployeeController } from '@modules/employee/useCases/delete/DeleteEmployeeController';
-import { FindByIdEmployeeController } from '@modules/employee/useCases/findById/FindByIdEmployeeController';
-import { UpdateEmployeeController } from '@modules/employee/useCases/update/UpdateEmployeeController';
+import { CreateEmployeeController } from '../../../../modules/employee/useCases/create/CreateEmployeeController';
+import { DeleteEmployeeController } from '../../../../modules/employee/useCases/delete/DeleteEmployeeController';
+import { FindByIdEmployeeController } from '../../../../modules/employee/useCases/findById/FindByIdEmployeeController';
+import { UpdateEmployeeController } from '../../../../modules/employee/useCases/update/UpdateEmployeeController';
 
 const employeeRoutes = Router();
 

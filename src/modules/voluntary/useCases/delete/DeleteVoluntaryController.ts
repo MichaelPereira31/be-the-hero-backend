@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import { container } from 'tsyringe';
 
-import { DeleteAddressUseCase } from '@modules/address/useCases/delete/DeleteAddressUseCase';
+import { DeleteAddressUseCase } from '../../../address/useCases/delete/DeleteAddressUseCase';
 
 export class DeleteVoluntaryController {
   async handle(request: Request, response: Response): Promise<Response> {

@@ -1,8 +1,8 @@
 import { inject, injectable } from 'tsyringe';
 
-import { IUpdateUserDTO } from '@modules/user/dtos/IUpdateUserDTO';
-import { IUserRepository } from '@modules/user/repositories/IUserRepository';
-import { AppError } from '@shared/infra/errors/AppError';
+import { AppError } from '../../../../shared/infra/errors/AppError';
+import { IUpdateUserDTO } from '../../dtos/IUpdateUserDTO';
+import { IUserRepository } from '../../repositories/IUserRepository';
 
 @injectable()
 export class UpdateUserUseCase {

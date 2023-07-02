@@ -1,10 +1,10 @@
 import { Router } from 'express';
 
-import { CreateComplaintController } from '@modules/complaint/useCases/create/CreateComplaintController';
-import { DeleteComplaintController } from '@modules/complaint/useCases/delete/DeleteComplaintController';
-import { FindAllUserComplaintController } from '@modules/complaint/useCases/findAllUser/FindAllUserComplaintController';
-import { FindByIdComplaintController } from '@modules/complaint/useCases/findById/FindByIdComplaintController';
-import { UpdateComplaintController } from '@modules/complaint/useCases/update/UpdateComplaintController';
+import { CreateComplaintController } from '../../../../modules/complaint/useCases/create/CreateComplaintController';
+import { DeleteComplaintController } from '../../../../modules/complaint/useCases/delete/DeleteComplaintController';
+import { FindAllUserComplaintController } from '../../../../modules/complaint/useCases/findAllUser/FindAllUserComplaintController';
+import { FindByIdComplaintController } from '../../../../modules/complaint/useCases/findById/FindByIdComplaintController';
+import { UpdateComplaintController } from '../../../../modules/complaint/useCases/update/UpdateComplaintController';
 
 const complaintRoutes = Router();
 

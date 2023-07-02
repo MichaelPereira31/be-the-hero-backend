@@ -1,7 +1,7 @@
 import { inject, injectable } from 'tsyringe';
 
-import { IUpdateVoluntaryDTO } from '@modules/voluntary/dtos/IUpdateVoluntaryDTO';
-import { IVoluntaryRepository } from '@modules/voluntary/repositories/IVoluntaryRepository';
+import { IUpdateVoluntaryDTO } from '../../dtos/IUpdateVoluntaryDTO';
+import { IVoluntaryRepository } from '../../repositories/IVoluntaryRepository';
 
 @injectable()
 export class UpdateVoluntaryUseCase {

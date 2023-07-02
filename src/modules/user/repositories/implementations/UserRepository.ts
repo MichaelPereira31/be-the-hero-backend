@@ -2,8 +2,8 @@ import { ICreateUserDTO } from '@modules/user/dtos/ICreateUserDTO';
 import { ITypeUserDTO } from '@modules/user/dtos/ITypeUserDTO';
 import { IUpdateUserDTO } from '@modules/user/dtos/IUpdateUserDTO';
 import { User } from '@prisma/client';
-import prismaClient from '@shared/infra/database';
 
+import prismaClient from '../../../../shared/infra/database';
 import { IUserRepository } from '../IUserRepository';
 
 export class UserRepository implements IUserRepository {

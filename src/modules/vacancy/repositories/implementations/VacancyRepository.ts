@@ -1,8 +1,8 @@
 import { ICreateVacancyDTO } from '@modules/vacancy/dtos/ICreateVacancyDTO';
 import { IUpdateVacancyDTO } from '@modules/vacancy/dtos/IUpdateVacancyDTO';
 import { Vacancy } from '@prisma/client';
-import prismaClient from '@shared/infra/database';
 
+import prismaClient from '../../../../shared/infra/database';
 import { IVacancyRepository } from '../IVacancyRepository';
 
 export class VacancyRepository implements IVacancyRepository {

@@ -1,7 +1,8 @@
 import { inject, injectable } from 'tsyringe';
 
-import { IUserRepository } from '@modules/user/repositories/IUserRepository';
 import { UserType } from '@prisma/client';
+
+import { IUserRepository } from '../../repositories/IUserRepository';
 
 @injectable()
 export class FindUserByTypeUseCase {

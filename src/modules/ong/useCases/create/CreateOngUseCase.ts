@@ -1,7 +1,7 @@
 import { inject, injectable } from 'tsyringe';
 
-import { ICreateOngDTO } from '@modules/ong/dtos/ICreateOngDTO';
-import { IOngRepository } from '@modules/ong/repository/IOngRepository';
+import { ICreateOngDTO } from '../../dtos/ICreateOngDTO';
+import { IOngRepository } from '../../repositories/IOngRepository';
 
 @injectable()
 export class CreateOngUseCase {

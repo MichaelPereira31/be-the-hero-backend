@@ -1,9 +1,10 @@
 import { inject, injectable } from 'tsyringe';
 
-import { IUpdateComplaintDTO } from '@modules/complaint/dtos/IUpdateComplaintDTO';
-import { IComplaintRepository } from '@modules/complaint/repositories/IComplaintRepository';
 import { Complaint } from '@prisma/client';
-import { AppError } from '@shared/infra/errors/AppError';
+
+import { AppError } from '../../../../shared/infra/errors/AppError';
+import { IUpdateComplaintDTO } from '../../dtos/IUpdateComplaintDTO';
+import { IComplaintRepository } from '../../repositories/IComplaintRepository';
 
 @injectable()
 export class UpdateComplaintUseCase {

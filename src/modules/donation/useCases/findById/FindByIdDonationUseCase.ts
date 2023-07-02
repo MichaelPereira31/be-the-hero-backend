@@ -1,8 +1,9 @@
 import { inject, injectable } from 'tsyringe';
 
-import { IDonationRepository } from '@modules/donation/repositories/IDonationRepository';
 import { Donation } from '@prisma/client';
-import { AppError } from '@shared/infra/errors/AppError';
+
+import { AppError } from '../../../../shared/infra/errors/AppError';
+import { IDonationRepository } from '../../repositories/IDonationRepository';
 
 @injectable()
 export class FindByIdDonationUseCase {

@@ -1,8 +1,9 @@
 import { inject, injectable } from 'tsyringe';
 
-import { ICreateEmployeeDTO } from '@modules/employee/dtos/ICreateEmployeeDTO';
-import { IEmployeeRepository } from '@modules/employee/repositories/IEmployeeRepository';
 import { Employee } from '@prisma/client';
+
+import { ICreateEmployeeDTO } from '../../dtos/ICreateEmployeeDTO';
+import { IEmployeeRepository } from '../../repositories/IEmployeeRepository';
 
 @injectable()
 export class CreateEmployeeUseCase {

@@ -2,7 +2,7 @@
 CREATE TYPE "DonationStatus" AS ENUM ('completed', 'canceled', 'opened');
 
 -- CreateEnum
-CREATE TYPE "ItemStutus" AS ENUM ('completed', 'canceled', 'opened');
+CREATE TYPE "ItemStatus" AS ENUM ('completed', 'canceled', 'opened');
 
 -- CreateEnum
 CREATE TYPE "UserStatus" AS ENUM ('active', 'inactive');
@@ -76,7 +76,7 @@ CREATE TABLE "item" (
     "reason" TEXT NOT NULL,
     "necessary_amount" TEXT NOT NULL,
     "amount_received" TEXT NOT NULL,
-    "status" "ItemStutus" NOT NULL DEFAULT 'opened',
+    "status" "ItemStatus" NOT NULL DEFAULT 'opened',
     "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updated_at" TIMESTAMP(3) NOT NULL,
     "donationId" TEXT NOT NULL,
@@ -122,7 +122,7 @@ CREATE TABLE "employee" (
     "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updated_at" TIMESTAMP(3) NOT NULL,
     "ongId" TEXT NOT NULL,
-    "userId" TEXT NOT NULL,
+    "voluntaryId" TEXT NOT NULL,
 
     CONSTRAINT "employee_pkey" PRIMARY KEY ("id")
 );
@@ -130,7 +130,7 @@ CREATE TABLE "employee" (
 -- CreateTable
 CREATE TABLE "complaint" (
     "id" TEXT NOT NULL,
-    "file" TEXT NOT NULL,
+    "file" TEXT,
     "title" TEXT NOT NULL,
     "reason" "ComplaintReason" NOT NULL,
     "description" TEXT NOT NULL,
@@ -178,7 +178,7 @@ ALTER TABLE "user" ADD CONSTRAINT "user_addressId_fkey" FOREIGN KEY ("addressId"
 ALTER TABLE "employee" ADD CONSTRAINT "employee_ongId_fkey" FOREIGN KEY ("ongId") REFERENCES "ong"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "employee" ADD CONSTRAINT "employee_userId_fkey" FOREIGN KEY ("userId") REFERENCES "user"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "employee" ADD CONSTRAINT "employee_voluntaryId_fkey" FOREIGN KEY ("voluntaryId") REFERENCES "voluntary"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE "complaint" ADD CONSTRAINT "complaint_userId_fkey" FOREIGN KEY ("userId") REFERENCES "user"("id") ON DELETE RESTRICT ON UPDATE CASCADE;

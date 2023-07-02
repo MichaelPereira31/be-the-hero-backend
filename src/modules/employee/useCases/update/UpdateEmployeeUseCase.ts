@@ -1,9 +1,10 @@
 import { inject, injectable } from 'tsyringe';
 
-import { IUpdateEmployeeDTO } from '@modules/employee/dtos/IUpdateEmployeeDTO';
-import { IEmployeeRepository } from '@modules/employee/repositories/IEmployeeRepository';
 import { Employee } from '@prisma/client';
-import { AppError } from '@shared/infra/errors/AppError';
+
+import { AppError } from '../../../../shared/infra/errors/AppError';
+import { IUpdateEmployeeDTO } from '../../dtos/IUpdateEmployeeDTO';
+import { IEmployeeRepository } from '../../repositories/IEmployeeRepository';
 
 @injectable()
 export class UpdateEmployeeUseCase {

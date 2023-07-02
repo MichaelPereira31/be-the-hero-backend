@@ -1,8 +1,8 @@
 import { ICreateAddressDTO } from '@modules/address/dtos/ICreateAddressDTO';
 import { IUpdateAddressDTO } from '@modules/address/dtos/IUpdateAddressDTO';
 import { Address } from '@prisma/client';
-import prismaClient from '@shared/infra/database';
 
+import prismaClient from '../../../../shared/infra/database';
 import { IAddressRepository } from '../IAddressRepository';
 
 export class AddressRepository implements IAddressRepository {

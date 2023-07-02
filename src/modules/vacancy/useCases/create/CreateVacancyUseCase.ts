@@ -1,7 +1,7 @@
 import { inject, injectable } from 'tsyringe';
 
-import { ICreateVacancyDTO } from '@modules/vacancy/dtos/ICreateVacancyDTO';
-import { IVacancyRepository } from '@modules/vacancy/repositories/IVacancyRepository';
+import { ICreateVacancyDTO } from '../../dtos/ICreateVacancyDTO';
+import { IVacancyRepository } from '../../repositories/IVacancyRepository';
 
 @injectable()
 export class CreateVacancyUseCase {

@@ -1,8 +1,8 @@
 import { ICreateItemDTO } from '@modules/item/dtos/ICreateItemDTO';
 import { IUpdateItemDTO } from '@modules/item/dtos/IUpdateItemDTO';
 import { Item } from '@prisma/client';
-import prismaClient from '@shared/infra/database';
 
+import prismaClient from '../../../../shared/infra/database';
 import { IItemRepository } from '../IItemRepository';
 
 export class ItemRepository implements IItemRepository {

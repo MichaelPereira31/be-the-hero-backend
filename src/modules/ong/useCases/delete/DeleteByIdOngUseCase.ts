@@ -1,7 +1,7 @@
 import { inject, injectable } from 'tsyringe';
 
-import { IOngRepository } from '@modules/ong/repository/IOngRepository';
-import { AppError } from '@shared/infra/errors/AppError';
+import { AppError } from '../../../../shared/infra/errors/AppError';
+import { IOngRepository } from '../../repositories/IOngRepository';
 
 @injectable()
 export class DeleteOngUseCase {

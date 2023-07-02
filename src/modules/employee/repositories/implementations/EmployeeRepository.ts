@@ -1,8 +1,8 @@
-import { ICreateEmployeeDTO } from '@modules/employee/dtos/ICreateEmployeeDTO';
-import { IUpdateEmployeeDTO } from '@modules/employee/dtos/IUpdateEmployeeDTO';
 import { Employee } from '@prisma/client';
-import prismaClient from '@shared/infra/database';
 
+import prismaClient from '../../../../shared/infra/database';
+import { ICreateEmployeeDTO } from '../../dtos/ICreateEmployeeDTO';
+import { IUpdateEmployeeDTO } from '../../dtos/IUpdateEmployeeDTO';
 import { IEmployeeRepository } from '../IEmployeeRepository';
 
 export class EmployeeRepository implements IEmployeeRepository {

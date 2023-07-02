@@ -1,7 +1,8 @@
 import { inject, injectable } from 'tsyringe';
 
-import { IDonationRepository } from '@modules/donation/repositories/IDonationRepository';
 import { Donation } from '@prisma/client';
+
+import { IDonationRepository } from '../../repositories/IDonationRepository';
 
 @injectable()
 export class FindAllDonationUseCase {

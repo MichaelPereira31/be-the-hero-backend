@@ -1,8 +1,8 @@
 import { ICreateDonationDTO } from '@modules/donation/dtos/ICreateDonationDTO';
 import { IUpdateDonationDTO } from '@modules/donation/dtos/IUpdateDonationDTO';
 import { Donation } from '@prisma/client';
-import prismaClient from '@shared/infra/database';
 
+import prismaClient from '../../../../shared/infra/database';
 import { IDonationRepository } from '../IDonationRepository';
 
 export class DonationRepository implements IDonationRepository {

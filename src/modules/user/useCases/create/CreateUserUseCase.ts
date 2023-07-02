@@ -1,16 +1,17 @@
 import { inject, injectable } from 'tsyringe';
 
-import { ICreateUserDTO } from '@modules/user/dtos/ICreateUserDTO';
-import { IUserRepository } from '@modules/user/repositories/IUserRepository';
 import { User } from '@prisma/client';
-import { AppError } from '@shared/infra/errors/AppError';
-import { encrypt } from '@shared/utils/encrypt';
+
+import { AppError } from '../../../../shared/infra/errors/AppError';
+import { encrypt } from '../../../../shared/utils/encrypt';
+import { ICreateUserDTO } from '../../dtos/ICreateUserDTO';
+import { IUserRepository } from '../../repositories/IUserRepository';
 
 @injectable()
 export class CreateUserUseCase {
   constructor(
     @inject('UserRepository')
-    private readonly userRespository: IUserRepository,
+    private readonly userRepository: IUserRepository,
   ) {}
 
   async execute({
@@ -22,7 +23,7 @@ export class CreateUserUseCase {
     status,
     type,
   }: ICreateUserDTO): Promise<User> {
-    const userAlreadyExist = await this.userRespository.findByEmail(email);
+    const userAlreadyExist = await this.userRepository.findByEmail(email);
 
     if (userAlreadyExist) {
       throw new AppError('User already exists', 409);
@@ -30,7 +31,7 @@ export class CreateUserUseCase {
 
     const encryptedPassword = encrypt(password);
 
-    const user = await this.userRespository.createUser({
+    const user = await this.userRepository.createUser({
       addressId,
       email,
       lastName,

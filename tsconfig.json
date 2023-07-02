@@ -19,16 +19,11 @@
         "config/*"
       ]
     },
-    "typeRoots": [
-      "@types",
-      "./node_modules/@types"
-    ],
     "resolveJsonModule": true,
     "outDir": "./dist",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true,
-    "strict": true,
     "strictNullChecks": false,
     "downlevelIteration": true
   }

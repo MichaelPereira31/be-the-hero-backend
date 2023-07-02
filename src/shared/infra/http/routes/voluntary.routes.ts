@@ -1,11 +1,10 @@
 import { Router } from 'express';
 
-import { CreateVoluntaryController } from '@modules/voluntary/useCases/create/CreateVoluntaryController';
-import { DeleteVoluntaryController } from '@modules/voluntary/useCases/delete/DeleteVoluntaryController';
-import { FindAllVoluntaryController } from '@modules/voluntary/useCases/findAll/FindAllVoluntaryController';
-import { FindByIdVoluntaryController } from '@modules/voluntary/useCases/findById/FindByIdVoluntaryController';
-import { UpdateVoluntaryController } from '@modules/voluntary/useCases/update/UpdateVoluntaryController';
-
+import { CreateVoluntaryController } from '../../../../modules/voluntary/useCases/create/CreateVoluntaryController';
+import { DeleteVoluntaryController } from '../../../../modules/voluntary/useCases/delete/DeleteVoluntaryController';
+import { FindAllVoluntaryController } from '../../../../modules/voluntary/useCases/findAll/FindAllVoluntaryController';
+import { FindByIdVoluntaryController } from '../../../../modules/voluntary/useCases/findById/FindByIdVoluntaryController';
+import { UpdateVoluntaryController } from '../../../../modules/voluntary/useCases/update/UpdateVoluntaryController';
 import { isAuthenticate } from '../middlewares/isAuthenticate';
 
 const voluntaryRoutes = Router();

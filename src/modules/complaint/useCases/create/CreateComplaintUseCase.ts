@@ -1,8 +1,9 @@
 import { inject, injectable } from 'tsyringe';
 
-import { ICreateComplaintDTO } from '@modules/complaint/dtos/ICreateComplaintDTO';
-import { IComplaintRepository } from '@modules/complaint/repositories/IComplaintRepository';
 import { Complaint } from '@prisma/client';
+
+import { ICreateComplaintDTO } from '../../dtos/ICreateComplaintDTO';
+import { IComplaintRepository } from '../../repositories/IComplaintRepository';
 
 @injectable()
 export class CreateComplaintUseCase {

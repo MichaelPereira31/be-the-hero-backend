@@ -1,11 +1,10 @@
 import { Router } from 'express';
 
-import { CreateOngController } from '@modules/ong/useCases/create/CreateOngController';
-import { DeleteOngController } from '@modules/ong/useCases/delete/DeleteOngController';
-import { FindByIdOngController } from '@modules/ong/useCases/findById/FindByIdOngController';
-import { FindByNameOngController } from '@modules/ong/useCases/findByName/FindByNameOngController';
-import { UpdateOngController } from '@modules/ong/useCases/update/UpdateOngController';
-
+import { CreateOngController } from '../../../../modules/ong/useCases/create/CreateOngController';
+import { DeleteOngController } from '../../../../modules/ong/useCases/delete/DeleteOngController';
+import { FindByIdOngController } from '../../../../modules/ong/useCases/findById/FindByIdOngController';
+import { FindByNameOngController } from '../../../../modules/ong/useCases/findByName/FindByNameOngController';
+import { UpdateOngController } from '../../../../modules/ong/useCases/update/UpdateOngController';
 import { isAuthenticate } from '../middlewares/isAuthenticate';
 
 const ongRoutes = Router();

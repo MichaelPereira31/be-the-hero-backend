@@ -1,7 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 
-import { logger } from '@shared/providers/logger/implementations/LoggerProvider';
-
+import { logger } from '../../providers/logger/implementations/LoggerProvider';
 import { AppError } from './AppError';
 
 export function getErrors(

@@ -1,8 +1,8 @@
 import { ICreateVoluntaryDTO } from '@modules/voluntary/dtos/ICreateVoluntaryDTO';
 import { IUpdateVoluntaryDTO } from '@modules/voluntary/dtos/IUpdateVoluntaryDTO';
 import { Voluntary } from '@prisma/client';
-import prismaClient from '@shared/infra/database';
 
+import prismaClient from '../../../../shared/infra/database';
 import { IVoluntaryRepository } from '../IVoluntaryRepository';
 
 export class VoluntaryRepository implements IVoluntaryRepository {

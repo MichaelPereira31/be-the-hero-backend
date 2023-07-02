@@ -1,7 +1,7 @@
 import { inject, injectable } from 'tsyringe';
 
-import { IEmployeeRepository } from '@modules/employee/repositories/IEmployeeRepository';
-import { AppError } from '@shared/infra/errors/AppError';
+import { AppError } from '../../../../shared/infra/errors/AppError';
+import { IEmployeeRepository } from '../../repositories/IEmployeeRepository';
 
 @injectable()
 export class DeleteEmployeeUseCase {

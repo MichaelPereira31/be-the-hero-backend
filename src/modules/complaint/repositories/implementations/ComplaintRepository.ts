@@ -1,8 +1,8 @@
 import { ICreateComplaintDTO } from '@modules/complaint/dtos/ICreateComplaintDTO';
 import { IUpdateComplaintDTO } from '@modules/complaint/dtos/IUpdateComplaintDTO';
 import { Complaint } from '@prisma/client';
-import prismaClient from '@shared/infra/database';
 
+import prismaClient from '../../../../shared/infra/database';
 import { IComplaintRepository } from '../IComplaintRepository';
 
 export class ComplaintRepository implements IComplaintRepository {
