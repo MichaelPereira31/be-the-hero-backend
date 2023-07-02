@@ -5,14 +5,14 @@ import { Vacancy } from '@prisma/client';
 import { AppError } from '@shared/infra/errors/AppError';
 
 @injectable()
-export class ReturnAllVacancesUseCase {
+export class FindAllUseCase {
   constructor(
     @inject('VacanceRepository')
     private readonly vacanceRepository: IVacanceRepository,
   ) {}
 
   async execute(): Promise<Vacancy[]> {
-    const vacances = await this.vacanceRepository.returnsAll();
+    const vacances = await this.vacanceRepository.findAll();
 
     if (vacances.length === 0) {
       throw new AppError('There is no vacances available', 404);

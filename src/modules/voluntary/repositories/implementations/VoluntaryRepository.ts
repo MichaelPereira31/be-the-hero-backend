@@ -5,10 +5,10 @@ import prismaClient from '@shared/infra/database';
 
 import { IVoluntaryRepository } from '../IVoluntaryRepository';
 
-export class VacanceRepository implements IVoluntaryRepository {
+export class VoluntaryRepository implements IVoluntaryRepository {
   constructor(private readonly cxt = { prisma: prismaClient }) {}
 
-  async returnAll(): Promise<Voluntary[]> {
+  async findAll(): Promise<Voluntary[]> {
     const voluntarys = await this.cxt.prisma.voluntary.findMany({});
 
     return voluntarys;

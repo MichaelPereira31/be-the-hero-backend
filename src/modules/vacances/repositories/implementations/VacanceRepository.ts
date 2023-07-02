@@ -63,7 +63,7 @@ export class VacanceRepository implements IVacanceRepository {
     return ong;
   }
 
-  async returnsAll(): Promise<Vacancy[]> {
+  async findAll(): Promise<Vacancy[]> {
     const vacances = await this.cxt.prisma.vacancy.findMany({});
 
     return vacances;

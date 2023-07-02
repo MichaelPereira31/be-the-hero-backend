@@ -6,7 +6,7 @@ import { IUpdateVacanceDTO } from '../dtos/IUpdateVacanceDTO';
 export type IVacanceRepository = {
   createVacance(params: ICreateVacanceDTO): Promise<Vacancy>;
   findById(id: string): Promise<Vacancy | null>;
-  returnsAll(): Promise<Vacancy[]>;
+  findAll(): Promise<Vacancy[]>;
   update(params: IUpdateVacanceDTO): Promise<Vacancy>;
   delete(id: string): void;
 };

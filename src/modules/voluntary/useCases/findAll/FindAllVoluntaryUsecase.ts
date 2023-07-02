@@ -12,7 +12,7 @@ export class FindAllVoluntaryUseCase {
   ) {}
 
   async execute(): Promise<Voluntary[]> {
-    const voluntarys = await this.VoluntaryRepository.returnAll();
+    const voluntarys = await this.VoluntaryRepository.findAll();
 
     if (voluntarys.length === 0) {
       throw new AppError('There is no Voluntarys available', 400);
