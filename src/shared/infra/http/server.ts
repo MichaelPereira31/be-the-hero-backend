@@ -6,9 +6,6 @@ import express from 'express';
 import '../../containers';
 import { logger } from '@shared/providers/logger/implementations/LoggerProvider';
 
-// eslint-disable-next-line import-helpers/order-imports
-import cors from 'cors';
-
 import { getErrors } from '../errors/getErrors';
 import responseFormatter from './middlewares/responseFormatter';
 import { router } from './routes';
@@ -25,7 +22,6 @@ app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
   next();
 });
-app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(responseFormatter);
