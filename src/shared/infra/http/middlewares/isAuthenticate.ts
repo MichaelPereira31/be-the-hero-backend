@@ -10,6 +10,7 @@ interface ITokenPayload {
   userId: string;
   email: string;
   type: string;
+  status: string;
 }
 export function isAuthenticate(
   request: Request,
@@ -26,14 +27,14 @@ export function isAuthenticate(
 
   try {
     const decodeToken = verify(token, authConfig.jwt.secret);
-    const { userId, email, type } = decodeToken as ITokenPayload;
+    const { userId, email, type, status } = decodeToken as ITokenPayload;
 
     request.user = {
       id: userId,
       email,
       type,
+      status,
     };
-
     return next();
   } catch (err) {
     throw new AppError('Invalid JWT token');
