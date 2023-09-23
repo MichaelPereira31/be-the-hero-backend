@@ -32,7 +32,6 @@ export class AuthenticateUseCase {
       {
         userId: user.id,
         email: user.email,
-        type: user.type,
         status: user.status,
       },
       authConfig.jwt.secret,
