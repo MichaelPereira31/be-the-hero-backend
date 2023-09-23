@@ -11,110 +11,42 @@ datasource db {
 }
 
 model Address {
-  id                String         @id @default(uuid())
-  street            String
-  number            String
-  neighborhood      String
-  city              String
-  state             DonationStatus @default(opened)
-  complement        String
-  reference         String
-  googleCoordinates String         @map("google_coordinates")
-  createdAt         DateTime       @default(now()) @map("created_at")
-  updatedAt         DateTime       @updatedAt @map("updated_at")
+  id           String   @id @default(uuid())
+  street       String
+  number       String
+  neighborhood String
+  city         String
+  complement   String
+  reference    String
+  createdAt    DateTime @default(now()) @map("created_at")
+  updatedAt    DateTime @updatedAt @map("updated_at")
 
-  Ong  Ong[]
   User User[]
 
   @@map("address")
 }
 
 model Ong {
-  id             String   @id @default(uuid())
+  id             String      @id @default(uuid())
   name           String
   description    String
   objective      String
-  mainPhone      String   @map("main_phone")
-  secondaryPhone String   @map("secondary_phone")
-  mainEmail      String   @map("main_email")
-  secondaryEmail String   @map("secondary_email")
-  address        Address  @relation(fields: [addressId], references: [id])
-  addressId      String
-  createdAt      DateTime @default(now()) @map("created_at")
-  updatedAt      DateTime @updatedAt @map("updated_at")
-
-  Donation Donation[]
-  Vacancy  Vacancy[]
-  Employee Employee[]
+  mainPhone      String      @map("main_phone")
+  secondaryPhone String      @map("secondary_phone")
+  mainEmail      String      @map("main_email")
+  secondaryEmail String      @map("secondary_email")
+  user           User        @relation(fields: [userId], references: [id])
+  createdAt      DateTime    @default(now()) @map("created_at")
+  updatedAt      DateTime    @updatedAt @map("updated_at")
+  event          Event[]
+  userId         String
 
   @@map("ong")
 }
 
-model Donation {
-  id          String   @id @default(uuid())
-  title       String
-  description String
-  reason      String
-  goal        String
-  status      String
-  createdAt   DateTime @default(now()) @map("created_at")
-  updatedAt   DateTime @updatedAt @map("updated_at")
-
-  owner   Ong    @relation(fields: [ownerId], references: [id])
-  ownerId String @map("owner_id")
-  Item    Item[]
-
-  @@map("donation")
-}
-
-enum DonationStatus {
-  completed
-  canceled
-  opened
-}
-
-model Item {
-  id              String     @id @default(uuid())
-  title           String
-  description     String
-  reason          String
-  necessaryAmount String     @map("necessary_amount")
-  amountReceived  String     @map("amount_received")
-  status          ItemStatus @default(opened)
-  createdAt       DateTime   @default(now()) @map("created_at")
-  updatedAt       DateTime   @updatedAt @map("updated_at")
-
-  donation   Donation @relation(fields: [donationId], references: [id])
-  donationId String
-
-  @@map("item")
-}
-
-enum ItemStatus {
-  completed
-  canceled
-  opened
-}
-
-model Vacancy {
-  id             String   @id @default(uuid())
-  title          String
-  description    String
-  goal           String
-  role           String
-  numberOfPeople Int
-  createdAt      DateTime @default(now()) @map("created_at")
-  updatedAt      DateTime @updatedAt @map("updated_at")
-
-  owner     Ong         @relation(fields: [ownerId], references: [id])
-  ownerId   String      @map("owner_id")
-  Voluntary Voluntary[]
-
-  @@map("vacancy")
-}
-
 model User {
   id        String      @id @default(uuid())
+  avatar    String?
   name      String?
   lastName  String?     @map("last_name")
   email     String?     @unique
@@ -126,8 +58,8 @@ model User {
 
   address   Address?    @relation(fields: [addressId], references: [id])
   addressId String?
-  Complaint Complaint[]
-  Voluntary Voluntary[]
+  voluntary Voluntary[]
+  Ong       Ong[]
 
   @@map("user")
 }
@@ -142,69 +74,34 @@ enum UserType {
   voluntary
 }
 
-model Employee {
-  id        String         @id @default(uuid())
-  office    EmployeeOffice @default(helper)
-  createdAt DateTime       @default(now()) @map("created_at")
-  updatedAt DateTime       @updatedAt @map("updated_at")
-
-  ong   Ong    @relation(fields: [ongId], references: [id])
-  ongId String
-
-  voluntary   Voluntary @relation(fields: [voluntaryId], references: [id])
-  voluntaryId String
-
-  @@map("employee")
-}
-
-enum EmployeeOffice {
-  admin
-  helper
-}
-
-model Complaint {
-  id          String          @id @default(uuid())
-  file        String?
-  title       String
-  reason      ComplaintReason
+model Event {
+  id          String      @id @default(uuid())
+  name        String
   description String
-  createdAt   DateTime        @default(now()) @map("created_at")
-  updatedAt   DateTime        @updatedAt @map("updated_at")
+  category    String
+  createdAt   DateTime    @default(now()) @map("created_at")
+  updatedAt   DateTime    @updatedAt @map("updated_at")
+  voluntary   Voluntary[]
+  Ong         Ong?        @relation(fields: [ongId], references: [id])
+  ongId       String?
 
-  user   User   @relation(fields: [userId], references: [id])
-  userId String
-
-  @@map("complaint")
-}
-
-enum ComplaintReason {
-  ong
-  open
-  voluntary
-  donation
-  vacancy
+  @@map("event")
 }
 
 model Voluntary {
-  id                  String          @id @default(uuid())
-  code                String
-  avaliation          String
-  note                Int
-  status              VoluntaryStatus
-  initialAvailability DateTime
-  finalAvailability   DateTime
-
-  user   User   @relation(fields: [userId], references: [id])
-  userId String
-
-  vancancy  Vacancy    @relation(fields: [vacancyId], references: [id])
-  vacancyId String
-  Employee  Employee[]
+  id        String      @id @default(uuid())
+  user      User        @relation(fields: [userId], references: [id])
+  event     Event       @relation(fields: [eventId], references: [id])
+  status    EventStatus
+  createdAt DateTime    @default(now()) @map("created_at")
+  updatedAt DateTime    @updatedAt @map("updated_at")
+  userId    String
+  eventId   String
 
   @@map("voluntary")
 }
 
-enum VoluntaryStatus {
+enum EventStatus {
   accepted
   waiting
   canceled
