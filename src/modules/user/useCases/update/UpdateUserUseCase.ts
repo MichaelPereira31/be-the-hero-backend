@@ -11,7 +11,14 @@ export class UpdateUserUseCase {
     private readonly userRepository: IUserRepository,
   ) {}
 
-  async execute({ id, addressId, email, lastName, name }: IUpdateUserDTO) {
+  async execute({
+    id,
+    addressId,
+    email,
+    lastName,
+    name,
+    type,
+  }: IUpdateUserDTO) {
     const user = await this.userRepository.findById(id);
 
     if (!user) {
@@ -24,6 +31,7 @@ export class UpdateUserUseCase {
       email,
       lastName,
       name,
+      type,
     });
 
     return userUpdate;
