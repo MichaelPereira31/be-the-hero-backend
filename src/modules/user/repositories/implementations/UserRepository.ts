@@ -27,8 +27,8 @@ export class UserRepository implements IUserRepository {
   async createUser({
     name,
     lastName,
-    status = 'ong',
-    type = 'active',
+    status = 'voluntary',
+    type = 'inactive',
     email,
     password,
     addressId,

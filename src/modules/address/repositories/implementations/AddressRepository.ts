@@ -1,6 +1,6 @@
 import { ICreateAddressDTO } from '@modules/address/dtos/ICreateAddressDTO';
 import { IUpdateAddressDTO } from '@modules/address/dtos/IUpdateAddressDTO';
-import { Address, DonationStatus } from '@prisma/client';
+import { Address } from '@prisma/client';
 import prismaClient from '@shared/infra/database';
 
 import { IAddressRepository } from '../IAddressRepository';
@@ -19,10 +19,8 @@ export class AddressRepository implements IAddressRepository {
     number,
     neighborhood,
     city,
-    state,
     complement,
     reference,
-    googleCoordinates,
   }: ICreateAddressDTO): Promise<Address> {
     const address = await this.ctx.prisma.address.create({
       data: {
@@ -30,10 +28,8 @@ export class AddressRepository implements IAddressRepository {
         number,
         neighborhood,
         city,
-        state: DonationStatus[state],
         complement,
         reference,
-        googleCoordinates,
       },
     });
 
@@ -46,10 +42,8 @@ export class AddressRepository implements IAddressRepository {
     number,
     neighborhood,
     city,
-    state,
     complement,
     reference,
-    googleCoordinates,
   }: IUpdateAddressDTO): Promise<Address> {
     const address = await this.ctx.prisma.address.update({
       where: { id },
@@ -58,10 +52,8 @@ export class AddressRepository implements IAddressRepository {
         number,
         neighborhood,
         city,
-        state: DonationStatus[state as string],
         complement,
         reference,
-        googleCoordinates,
       },
     });
 

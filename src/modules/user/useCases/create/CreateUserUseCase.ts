@@ -10,19 +10,16 @@ import { encrypt } from '@shared/utils/encrypt';
 export class CreateUserUseCase {
   constructor(
     @inject('UserRepository')
-    private readonly userRespository: IUserRepository,
+    private readonly userRepository: IUserRepository,
   ) {}
 
   async execute({
-    addressId,
     email,
     lastName,
     name,
     password,
-    status,
-    type,
   }: ICreateUserDTO): Promise<User> {
-    const userAlreadyExist = await this.userRespository.findByEmail(email);
+    const userAlreadyExist = await this.userRepository.findByEmail(email);
 
     if (userAlreadyExist) {
       throw new AppError('User already exists', 409);
@@ -30,14 +27,11 @@ export class CreateUserUseCase {
 
     const encryptedPassword = encrypt(password);
 
-    const user = await this.userRespository.createUser({
-      addressId,
+    const user = await this.userRepository.createUser({
       email,
       lastName,
       name,
       password: encryptedPassword,
-      status,
-      type,
     });
 
     return user;

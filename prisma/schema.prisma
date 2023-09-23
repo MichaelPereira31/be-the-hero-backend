@@ -27,17 +27,17 @@ model Address {
 }
 
 model Ong {
-  id             String      @id @default(uuid())
+  id             String   @id @default(uuid())
   name           String
   description    String
   objective      String
-  mainPhone      String      @map("main_phone")
-  secondaryPhone String      @map("secondary_phone")
-  mainEmail      String      @map("main_email")
-  secondaryEmail String      @map("secondary_email")
-  user           User        @relation(fields: [userId], references: [id])
-  createdAt      DateTime    @default(now()) @map("created_at")
-  updatedAt      DateTime    @updatedAt @map("updated_at")
+  mainPhone      String   @map("main_phone")
+  secondaryPhone String   @map("secondary_phone")
+  mainEmail      String   @map("main_email")
+  secondaryEmail String   @map("secondary_email")
+  user           User     @relation(fields: [userId], references: [id])
+  createdAt      DateTime @default(now()) @map("created_at")
+  updatedAt      DateTime @updatedAt @map("updated_at")
   event          Event[]
   userId         String
 
@@ -51,8 +51,8 @@ model User {
   lastName  String?     @map("last_name")
   email     String?     @unique
   password  String?
-  status    UserStatus? @default(active)
-  type      UserType?
+  status    UserStatus? @default(inactive)
+  type      UserType?   @default(voluntary)
   createdAt DateTime    @default(now()) @map("created_at")
   updatedAt DateTime    @updatedAt @map("updated_at")
 

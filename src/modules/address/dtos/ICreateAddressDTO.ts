@@ -4,8 +4,6 @@ export type ICreateAddressDTO = {
   number: string;
   neighborhood: string;
   city: string;
-  state: string;
   complement: string;
   reference: string;
-  googleCoordinates: string;
 };

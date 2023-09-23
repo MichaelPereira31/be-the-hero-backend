@@ -7,11 +7,15 @@
   "license": "MIT",
   "scripts": {
     "vercel-build":"npx prisma migrate deploy",
-    "dev": "tsnd --transpile-only --ignore-watch node_modules --respawn --exit-child src/shared/infra/http/server.ts",
+    "dev": "ts-node-dev -r tsconfig-paths/register --transpile-only --ignore-watch node_modules --respawn src/shared/infra/http/server.ts",
     "lint:staged": "lint-staged",
     "lint": "eslint . --fix",
     "prepare": "husky install",
-    "test": "jest --runInBand --detectOpenHandles --passWithNoTests"
+    "build": "tsc && tsc-alias",
+    "test": "jest --passWithNoTests --silent --noStackTrace --runInBand",
+    "test:verbose": "jest --passWithNoTests --runInBand",
+    "test:staged": "npm test --findRelatedTest",
+    "test:ci": "npm test -- --coverage"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.5.1",

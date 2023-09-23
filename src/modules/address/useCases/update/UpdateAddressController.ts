@@ -6,16 +6,8 @@ import { UpdateAddressUseCase } from './UpdateAddressUseCase';
 export class UpdateAddressController {
   async handle(request: Request, response: Response): Promise<Response> {
     const { id } = request.params;
-    const {
-      street,
-      number,
-      neighborhood,
-      city,
-      state,
-      complement,
-      reference,
-      googleCoordinates,
-    } = request.body;
+    const { street, number, neighborhood, city, complement, reference } =
+      request.body;
 
     const updateAddressUseCase = container.resolve(UpdateAddressUseCase);
 
@@ -25,10 +17,8 @@ export class UpdateAddressController {
       number,
       neighborhood,
       city,
-      state,
       complement,
       reference,
-      googleCoordinates,
     });
 
     return response.status(200).json(address);

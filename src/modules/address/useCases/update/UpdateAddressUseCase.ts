@@ -17,10 +17,8 @@ export class UpdateAddressUseCase {
     number,
     neighborhood,
     city,
-    state,
     complement,
     reference,
-    googleCoordinates,
   }: IUpdateAddressDTO) {
     const address = await this.addressRepository.findById(id);
 
@@ -34,10 +32,8 @@ export class UpdateAddressUseCase {
       number,
       neighborhood,
       city,
-      state,
       complement,
       reference,
-      googleCoordinates,
     });
 
     return updateAddress;

@@ -18,7 +18,6 @@ export class UpdateOngUseCase {
     secondaryPhone,
     mainEmail,
     secondaryEmail,
-    addressId,
   }: IUpdateOngDTO) {
     const ong = await this.ongRepository.update({
       id,
@@ -29,7 +28,6 @@ export class UpdateOngUseCase {
       secondaryPhone,
       mainEmail,
       secondaryEmail,
-      addressId,
     });
 
     return ong;

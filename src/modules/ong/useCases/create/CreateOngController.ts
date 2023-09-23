@@ -13,9 +13,8 @@ export class CreateOngController {
       secondaryPhone,
       mainEmail,
       secondaryEmail,
-      addressId,
     } = request.body;
-
+    const userId = request.user.id;
     const createOngUseCase = container.resolve(CreateOngUseCase);
 
     const ong = await createOngUseCase.execute({
@@ -26,7 +25,7 @@ export class CreateOngController {
       secondaryPhone,
       mainEmail,
       secondaryEmail,
-      addressId,
+      userId,
     });
 
     return response.status(201).json(ong);

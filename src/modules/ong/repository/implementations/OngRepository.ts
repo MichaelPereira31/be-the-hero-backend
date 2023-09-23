@@ -28,7 +28,7 @@ export class OngRepository implements IOngRepository {
     objective,
     secondaryEmail,
     secondaryPhone,
-    addressId,
+    userId,
   }: ICreateOngDTO): Promise<Ong> {
     const ong = await this.cxt.prisma.ong.create({
       data: {
@@ -39,7 +39,7 @@ export class OngRepository implements IOngRepository {
         secondaryPhone,
         mainEmail,
         secondaryEmail,
-        addressId,
+        userId,
       },
     });
 
@@ -55,7 +55,6 @@ export class OngRepository implements IOngRepository {
     secondaryPhone,
     mainEmail,
     secondaryEmail,
-    addressId,
   }: IUpdateOngDTO): Promise<Ong> {
     const ong = await this.cxt.prisma.ong.update({
       where: { id },
@@ -67,7 +66,6 @@ export class OngRepository implements IOngRepository {
         secondaryPhone,
         mainEmail,
         secondaryEmail,
-        addressId,
       },
     });
 

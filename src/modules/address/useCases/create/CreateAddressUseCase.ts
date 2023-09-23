@@ -18,20 +18,16 @@ export class CreateAddressUseCase {
     number,
     neighborhood,
     city,
-    state,
     complement,
     reference,
-    googleCoordinates,
   }: ICreateAddressDTO): Promise<Address> {
     const address = await this.addressRepository.create({
       street,
       number,
       neighborhood,
       city,
-      state,
       complement,
       reference,
-      googleCoordinates,
     });
 
     await this.userRepository.updateUser({

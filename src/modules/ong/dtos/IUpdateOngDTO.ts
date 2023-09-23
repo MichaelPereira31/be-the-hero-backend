@@ -7,5 +7,4 @@ export type IUpdateOngDTO = {
   secondaryPhone?: string;
   mainEmail?: string;
   secondaryEmail?: string;
-  addressId?: string;
 };

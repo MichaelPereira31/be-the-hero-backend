@@ -13,7 +13,6 @@ export class UpdateOngController {
       secondaryPhone,
       mainEmail,
       secondaryEmail,
-      addressId,
     } = request.body;
     const { id } = request.params;
 
@@ -28,7 +27,6 @@ export class UpdateOngController {
       secondaryPhone,
       mainEmail,
       secondaryEmail,
-      addressId,
     });
 
     return response.status(200).json(ong);

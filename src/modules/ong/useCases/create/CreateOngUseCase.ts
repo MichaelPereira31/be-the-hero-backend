@@ -17,7 +17,7 @@ export class CreateOngUseCase {
     secondaryPhone,
     mainEmail,
     secondaryEmail,
-    addressId,
+    userId,
   }: ICreateOngDTO) {
     const ong = await this.ongRepository.create({
       name,
@@ -27,7 +27,7 @@ export class CreateOngUseCase {
       secondaryPhone,
       mainEmail,
       secondaryEmail,
-      addressId,
+      userId,
     });
 
     return ong;
