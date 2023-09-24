@@ -1,4 +1,5 @@
 import { ICreateOngDTO } from '@modules/ong/dtos/ICreateOngDTO';
+import { IFindOngsDTO } from '@modules/ong/dtos/IFindOngsDTO';
 import { IUpdateOngDTO } from '@modules/ong/dtos/IUpdateOngDTO';
 import { Ong } from '@prisma/client';
 import prismaClient from '@shared/infra/database';
@@ -8,14 +9,41 @@ import { IOngRepository } from '../IOngRepository';
 export class OngRepository implements IOngRepository {
   constructor(private readonly cxt = { prisma: prismaClient }) {}
 
-  async findByName(name: string): Promise<Ong[]> {
-    const ongs = await this.cxt.prisma.ong.findMany({ where: { name } });
+  async findOngs({ name, description }: IFindOngsDTO): Promise<Ong[] | null> {
+    const ongs = await this.cxt.prisma.ong.findMany({
+      where: {
+        OR: [
+          {
+            name: {
+              contains: name as string,
+            },
+          },
+          {
+            description: {
+              contains: description as string,
+            },
+          },
+        ],
+      },
+    });
+
+    return ongs;
+  }
+
+  async findAll(): Promise<Ong[]> {
+    const ongs = await this.cxt.prisma.ong.findMany();
 
     return ongs;
   }
 
   async findById(id: string): Promise<Ong | null> {
     const ong = await this.cxt.prisma.ong.findUnique({ where: { id } });
+
+    return ong;
+  }
+
+  async findByUserId(userId: string): Promise<Ong | null> {
+    const ong = await this.cxt.prisma.ong.findUnique({ where: { userId } });
 
     return ong;
   }
