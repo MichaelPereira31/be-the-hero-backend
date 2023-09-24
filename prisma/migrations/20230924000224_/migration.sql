@@ -82,6 +82,9 @@ CREATE TABLE "voluntary" (
 );
 
 -- CreateIndex
+CREATE UNIQUE INDEX "ong_userId_key" ON "ong"("userId");
+
+-- CreateIndex
 CREATE UNIQUE INDEX "user_email_key" ON "user"("email");
 
 -- AddForeignKey
