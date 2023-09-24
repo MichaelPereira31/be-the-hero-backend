@@ -2,6 +2,7 @@ import { inject, injectable } from 'tsyringe';
 
 import { IUpdateOngDTO } from '@modules/ong/dtos/IUpdateOngDTO';
 import { IOngRepository } from '@modules/ong/repository/IOngRepository';
+import { AppError } from '@shared/infra/errors/AppError';
 
 @injectable()
 export class UpdateOngUseCase {
@@ -10,7 +11,7 @@ export class UpdateOngUseCase {
   ) {}
 
   async execute({
-    id,
+    userId,
     name,
     description,
     objective,
@@ -19,8 +20,14 @@ export class UpdateOngUseCase {
     mainEmail,
     secondaryEmail,
   }: IUpdateOngDTO) {
-    const ong = await this.ongRepository.update({
-      id,
+    const ong = await this.ongRepository.findByUserId(userId);
+
+    if (!ong) {
+      throw new AppError('Ong not found');
+    }
+
+    const updateOng = await this.ongRepository.update({
+      id: ong.id,
       name,
       description,
       objective,
@@ -30,6 +37,6 @@ export class UpdateOngUseCase {
       secondaryEmail,
     });
 
-    return ong;
+    return updateOng;
   }
 }

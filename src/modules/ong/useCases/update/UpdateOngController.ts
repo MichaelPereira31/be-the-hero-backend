@@ -14,12 +14,12 @@ export class UpdateOngController {
       mainEmail,
       secondaryEmail,
     } = request.body;
-    const { id } = request.params;
+    const userId = request.user.id;
 
     const updateOngUseCase = container.resolve(UpdateOngUseCase);
 
     const ong = await updateOngUseCase.execute({
-      id,
+      userId,
       name,
       description,
       objective,
