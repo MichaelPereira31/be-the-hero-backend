@@ -21,7 +21,7 @@ const app = express();
 //   next();
 // });
 // app.use(cors());
-// app.use(express.json());
+app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(responseFormatter);
 app.use(router);
