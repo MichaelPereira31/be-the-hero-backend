@@ -1,13 +1,21 @@
+/* eslint-disable import-helpers/order-imports */
+/* eslint-disable import/first */
+import * as dotenv from 'dotenv';
+
+dotenv.config();
+
 import 'reflect-metadata';
 import 'express-async-errors';
 import express from 'express';
 
-import '../../containers';
 import { logger } from '@shared/providers/logger/implementations/LoggerProvider';
 
 import { getErrors } from '../errors/getErrors';
 import responseFormatter from './middlewares/responseFormatter';
 import { router } from './routes';
+
+import '../../containers';
+import '../database';
 
 const app = express();
 app.use((req, res, next) => {
@@ -16,6 +24,7 @@ app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
   next();
 });
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(responseFormatter);

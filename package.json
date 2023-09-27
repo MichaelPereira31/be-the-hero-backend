@@ -6,7 +6,7 @@
   "author": "Michael Pereira <michael.pereira@chat2desk.com.br>",
   "license": "MIT",
   "scripts": {
-    "vercel-build":"npx prisma migrate deploy",
+    "vercel-build": "npx prisma migrate deploy",
     "dev": "ts-node-dev -r tsconfig-paths/register --transpile-only --ignore-watch node_modules --respawn src/shared/infra/http/server.ts",
     "lint:staged": "lint-staged",
     "lint": "eslint . --fix",
@@ -51,6 +51,7 @@
   "dependencies": {
     "@prisma/client": "^4.12.0",
     "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "express-async-errors": "^3.1.1",
     "jsonwebtoken": "^9.0.0",
