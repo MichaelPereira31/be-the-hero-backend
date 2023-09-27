@@ -31,4 +31,4 @@ app.use(responseFormatter);
 app.use(router);
 app.use(getErrors);
 
-app.listen(3333, () => logger.info('Server is running on port 3333'));
+app.listen(3322, () => logger.info('Server is running on port 3333'));
