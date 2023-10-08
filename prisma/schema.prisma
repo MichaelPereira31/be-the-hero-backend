@@ -38,7 +38,6 @@ model Ong {
   user           User     @relation(fields: [userId], references: [id])
   createdAt      DateTime @default(now()) @map("created_at")
   updatedAt      DateTime @updatedAt @map("updated_at")
-  event          Event[]
   userId         String   @unique
 
   @@map("ong")
@@ -60,6 +59,7 @@ model User {
   addressId String?
   voluntary Voluntary[]
   ong       Ong?
+  Event     Event[]
 
   @@map("user")
 }
@@ -82,8 +82,8 @@ model Event {
   createdAt   DateTime    @default(now()) @map("created_at")
   updatedAt   DateTime    @updatedAt @map("updated_at")
   voluntary   Voluntary[]
-  Ong         Ong?        @relation(fields: [ongId], references: [id])
-  ongId       String?
+  User        User        @relation(fields: [userId], references: [id])
+  userId      String
 
   @@map("event")
 }
