@@ -44,16 +44,16 @@ model Ong {
 }
 
 model User {
-  id        String      @id @default(uuid())
+  id        String   @id @default(uuid())
   avatar    String?
   name      String?
-  lastName  String?     @map("last_name")
-  email     String?     @unique
+  lastName  String?  @map("last_name")
+  email     String?  @unique
   password  String?
-  status    UserStatus? @default(inactive)
-  type      UserType?   @default(voluntary)
-  createdAt DateTime    @default(now()) @map("created_at")
-  updatedAt DateTime    @updatedAt @map("updated_at")
+  status    String   @default("inactive")
+  type      String   @default("voluntary")
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
 
   address   Address?    @relation(fields: [addressId], references: [id])
   addressId String?
@@ -62,16 +62,6 @@ model User {
   Event     Event[]
 
   @@map("user")
-}
-
-enum UserStatus {
-  active
-  inactive
-}
-
-enum UserType {
-  ong
-  voluntary
 }
 
 model Event {

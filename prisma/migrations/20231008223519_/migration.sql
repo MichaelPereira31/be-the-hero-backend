@@ -1,10 +1,4 @@
 -- CreateEnum
-CREATE TYPE "UserStatus" AS ENUM ('active', 'inactive');
-
--- CreateEnum
-CREATE TYPE "UserType" AS ENUM ('ong', 'voluntary');
-
--- CreateEnum
 CREATE TYPE "EventStatus" AS ENUM ('accepted', 'waiting', 'canceled', 'expired', 'concluded');
 
 -- CreateTable
@@ -47,8 +41,8 @@ CREATE TABLE "user" (
     "last_name" TEXT,
     "email" TEXT,
     "password" TEXT,
-    "status" "UserStatus" DEFAULT 'inactive',
-    "type" "UserType" DEFAULT 'voluntary',
+    "status" TEXT NOT NULL DEFAULT 'inactive',
+    "type" TEXT NOT NULL DEFAULT 'voluntary',
     "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updated_at" TIMESTAMP(3) NOT NULL,
     "addressId" TEXT,
