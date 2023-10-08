@@ -4,9 +4,13 @@
   "main": "index.js",
   "repository": "https://github.com/MichaelPereira31/be-the-hero-backend.git",
   "author": "Michael Pereira <michael.pereira@chat2desk.com.br>",
+  "engines": {
+    "node": "18 "
+  },
   "license": "MIT",
   "scripts": {
     "dev": "ts-node-dev -r tsconfig-paths/register --transpile-only --ignore-watch node_modules --respawn src/shared/infra/http/server.ts",
+    "start": "node dist/src/shared/infra/http/server.js",
     "lint:staged": "lint-staged",
     "lint": "eslint . --fix",
     "prepare": "husky install",
