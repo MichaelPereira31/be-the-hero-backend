@@ -64,7 +64,7 @@ CREATE TABLE "event" (
     "category" TEXT NOT NULL,
     "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updated_at" TIMESTAMP(3) NOT NULL,
-    "ongId" TEXT,
+    "userId" TEXT NOT NULL,
 
     CONSTRAINT "event_pkey" PRIMARY KEY ("id")
 );
@@ -94,7 +94,7 @@ ALTER TABLE "ong" ADD CONSTRAINT "ong_userId_fkey" FOREIGN KEY ("userId") REFERE
 ALTER TABLE "user" ADD CONSTRAINT "user_addressId_fkey" FOREIGN KEY ("addressId") REFERENCES "address"("id") ON DELETE SET NULL ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "event" ADD CONSTRAINT "event_ongId_fkey" FOREIGN KEY ("ongId") REFERENCES "ong"("id") ON DELETE SET NULL ON UPDATE CASCADE;
+ALTER TABLE "event" ADD CONSTRAINT "event_userId_fkey" FOREIGN KEY ("userId") REFERENCES "user"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE "voluntary" ADD CONSTRAINT "voluntary_userId_fkey" FOREIGN KEY ("userId") REFERENCES "user"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
