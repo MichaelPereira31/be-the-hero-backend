@@ -8,7 +8,7 @@ import 'reflect-metadata';
 import 'express-async-errors';
 import express from 'express';
 
-import { logger } from '@shared/providers/logger/implementations/LoggerProvider';
+import { logger } from '../../providers/logger/implementations/LoggerProvider';
 
 import { getErrors } from '../errors/getErrors';
 import responseFormatter from './middlewares/responseFormatter';
