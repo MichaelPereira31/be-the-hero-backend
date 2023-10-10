@@ -1,5 +1,5 @@
 -- CreateEnum
-CREATE TYPE "EventStatus" AS ENUM ('accepted', 'waiting', 'canceled', 'expired', 'concluded');
+CREATE TYPE "statusVoluntary" AS ENUM ('accepted', 'waiting', 'canceled', 'expired', 'concluded');
 
 -- CreateTable
 CREATE TABLE "address" (
@@ -67,7 +67,7 @@ CREATE TABLE "event" (
 -- CreateTable
 CREATE TABLE "voluntary" (
     "id" TEXT NOT NULL,
-    "status" "EventStatus" NOT NULL,
+    "status" "statusVoluntary" NOT NULL,
     "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updated_at" TIMESTAMP(3) NOT NULL,
     "userId" TEXT NOT NULL,

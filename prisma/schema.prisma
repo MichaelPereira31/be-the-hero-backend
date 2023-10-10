@@ -80,19 +80,19 @@ model Event {
 }
 
 model Voluntary {
-  id        String      @id @default(uuid())
-  user      User        @relation(fields: [userId], references: [id])
-  event     Event       @relation(fields: [eventId], references: [id])
-  status    EventStatus
-  createdAt DateTime    @default(now()) @map("created_at")
-  updatedAt DateTime    @updatedAt @map("updated_at")
+  id        String          @id @default(uuid())
+  user      User            @relation(fields: [userId], references: [id])
+  event     Event           @relation(fields: [eventId], references: [id])
+  status    statusVoluntary
+  createdAt DateTime        @default(now()) @map("created_at")
+  updatedAt DateTime        @updatedAt @map("updated_at")
   userId    String
   eventId   String
 
   @@map("voluntary")
 }
 
-enum EventStatus {
+enum statusVoluntary {
   accepted
   waiting
   canceled
