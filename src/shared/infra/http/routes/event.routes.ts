@@ -5,6 +5,7 @@ import { DeleteEventController } from '@modules/event/useCases/delete/DeleteEven
 import { FindByIdEventController } from '@modules/event/useCases/findById/FindByIdEventController';
 import { UpdateEventController } from '@modules/event/useCases/update/UpdateEventController';
 
+import { isActive } from '../middlewares/isActive';
 import { isAuthenticate } from '../middlewares/isAuthenticate';
 
 const eventRoutes = Router();
@@ -16,7 +17,7 @@ const deleteEventController = new DeleteEventController();
 
 eventRoutes.get('/:id', isAuthenticate, findEventByIdController.handle);
 
-eventRoutes.post('/', isAuthenticate, createEventController.handle);
+eventRoutes.post('/', isAuthenticate, isActive, createEventController.handle);
 
 eventRoutes.put('/:id', isAuthenticate, updateEventController.handle);
 
