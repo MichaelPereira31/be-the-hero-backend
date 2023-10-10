@@ -1,5 +1,6 @@
 import { ICreateVoluntaryDTO } from '@modules/voluntary/dtos/ICreateVoluntaryDTO';
 import { IFindAllVoluntaryDTO } from '@modules/voluntary/dtos/IFindAllVoluntaryDTO';
+import { IFindByEventIdAndUserIdDTO } from '@modules/voluntary/dtos/IFindByEventIdAndUserIdDTO';
 import { IUpdateVoluntaryDTO } from '@modules/voluntary/dtos/IUpdateVoluntaryDTO';
 import { Voluntary } from '@prisma/client';
 import prismaClient from '@shared/infra/database';
@@ -8,6 +9,17 @@ import { IVoluntaryRepository } from '../IVoluntaryRepository';
 
 export class VoluntaryRepository implements IVoluntaryRepository {
   constructor(private readonly ctx = { prisma: prismaClient }) {}
+  async findByEventIdAndUserId({
+    eventId,
+    userId,
+  }: IFindByEventIdAndUserIdDTO): Promise<Voluntary[]> {
+    const volunteers = await this.ctx.prisma.voluntary.findMany({
+      where: { userId, eventId },
+    });
+
+    return volunteers;
+  }
+
   async findById(id: string): Promise<Voluntary> {
     const voluntary = await this.ctx.prisma.voluntary.findUnique({
       where: { id },
