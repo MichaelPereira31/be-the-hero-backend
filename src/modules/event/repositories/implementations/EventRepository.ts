@@ -22,9 +22,10 @@ export class EventRepository implements IEventRepository {
     description,
     name,
     userId,
+    userType,
   }: ICreateEventDTO): Promise<Event> {
     const event = await this.ctx.prisma.event.create({
-      data: { category, description, name, userId },
+      data: { category, description, name, userId, userType },
     });
 
     return event;

@@ -3,4 +3,5 @@ export type ICreateEventDTO = {
   description: string;
   category: string;
   userId: string;
+  userType: string;
 };

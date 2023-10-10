@@ -20,6 +20,7 @@ export class CreateEventUseCase {
     description,
     name,
     userId,
+    userType,
   }: ICreateEventDTO): Promise<Event> {
     const user = await this.userRepository.findById(userId);
 
@@ -32,6 +33,7 @@ export class CreateEventUseCase {
       description,
       userId,
       category,
+      userType,
     });
 
     return event;
