@@ -10,6 +10,7 @@ interface ITokenPayload {
   userId: string;
   email: string;
   status: string;
+  type: string;
 }
 export function isAuthenticate(
   request: Request,
@@ -26,12 +27,13 @@ export function isAuthenticate(
 
   try {
     const decodeToken = verify(token, authConfig.jwt.secret);
-    const { userId, email, status } = decodeToken as ITokenPayload;
+    const { userId, email, status, type } = decodeToken as ITokenPayload;
 
     request.user = {
       id: userId,
       email,
       status,
+      type,
     };
     return next();
   } catch (err) {
