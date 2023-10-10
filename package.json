@@ -10,7 +10,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "ts-node-dev -r tsconfig-paths/register --transpile-only --ignore-watch node_modules --respawn src/shared/infra/http/server.ts",
-    "start": "node dist/src/shared/infra/http/server.js",
+    "vercel-build": "npx prisma migrate deploy",
     "lint:staged": "lint-staged",
     "lint": "eslint . --fix",
     "prepare": "husky install",

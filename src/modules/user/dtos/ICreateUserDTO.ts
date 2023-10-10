@@ -3,7 +3,7 @@ export type ICreateUserDTO = {
   lastName: string;
   email: string;
   password: string;
-  status?: 'ong' | 'voluntary';
-  type?: 'active' | 'inactive';
+  status?: 'active' | 'inactive';
+  type?: 'ong' | 'voluntary';
   addressId?: string;
 };

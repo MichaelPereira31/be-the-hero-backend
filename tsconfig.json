@@ -1,22 +1,31 @@
 {
   "compilerOptions": {
-      "target": "es2018",
-      "experimentalDecorators": true,
-      "emitDecoratorMetadata": true,
-      "module": "commonjs",
-      "baseUrl": "./src",
-      "paths": {
-          "@modules/*": ["modules/*"],
-          "@shared/*": ["shared/*"],
-          "@errors/*": ["errors/*"],
-          "@config/*": ["config/*"]
-      },
-      "resolveJsonModule": true,
-      "outDir": "./dist",
-      "esModuleInterop": true,
-      "forceConsistentCasingInFileNames": true,
-      "skipLibCheck": true,
-      "strictNullChecks": false,
-      "downlevelIteration": true
+    "target": "es2022",
+    "lib": ["es2022"],
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "module": "commonjs",
+    "rootDirs": ["src", "tests"],
+    "baseUrl": "./src",
+    "paths": {
+      "@modules/*": ["modules/*"],
+      "@shared/*": ["shared/*"],
+      "@errors/*": ["errors/*"],
+      "@config/*": ["config/*"]
+    },
+    "typeRoots": [
+      "./node_modules/@types",
+      "./src/@types"
+    ],
+    "resolveJsonModule": true,
+    "outDir": "./dist",
+    "removeComments": true,
+    "importHelpers": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "strictNullChecks": false,
+    "useUnknownInCatchVariables": false,
+    "skipLibCheck": true
   }
 }

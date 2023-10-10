@@ -8,7 +8,7 @@ import 'reflect-metadata';
 import 'express-async-errors';
 import express from 'express';
 
-import { logger } from '@shared/providers/logger/implementations/LoggerProvider';
+import { logger } from '../../providers/logger/implementations/LoggerProvider';
 
 import { getErrors } from '../errors/getErrors';
 import responseFormatter from './middlewares/responseFormatter';
@@ -31,4 +31,6 @@ app.use(responseFormatter);
 app.use(router);
 app.use(getErrors);
 
-app.listen(3333, () => logger.info('Server is running on port 3333'));
+app.listen(process.env.PORT, () =>
+  logger.info('Server is running on port 3333'),
+);
