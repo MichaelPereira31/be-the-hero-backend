@@ -36,9 +36,9 @@ model Ong {
   mainEmail      String   @map("main_email")
   secondaryEmail String   @map("secondary_email")
   user           User     @relation(fields: [userId], references: [id])
+  userId         String   @unique
   createdAt      DateTime @default(now()) @map("created_at")
   updatedAt      DateTime @updatedAt @map("updated_at")
-  userId         String   @unique
 
   @@map("ong")
 }
@@ -72,8 +72,9 @@ model Event {
   createdAt   DateTime    @default(now()) @map("created_at")
   updatedAt   DateTime    @updatedAt @map("updated_at")
   voluntary   Voluntary[]
-  User        User        @relation(fields: [userId], references: [id])
+  user        User        @relation(fields: [userId], references: [id])
   userId      String
+  userType    String
 
   @@map("event")
 }

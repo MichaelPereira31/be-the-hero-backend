@@ -26,9 +26,9 @@ CREATE TABLE "ong" (
     "secondary_phone" TEXT NOT NULL,
     "main_email" TEXT NOT NULL,
     "secondary_email" TEXT NOT NULL,
+    "userId" TEXT NOT NULL,
     "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updated_at" TIMESTAMP(3) NOT NULL,
-    "userId" TEXT NOT NULL,
 
     CONSTRAINT "ong_pkey" PRIMARY KEY ("id")
 );
@@ -59,6 +59,7 @@ CREATE TABLE "event" (
     "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updated_at" TIMESTAMP(3) NOT NULL,
     "userId" TEXT NOT NULL,
+    "userType" TEXT NOT NULL,
 
     CONSTRAINT "event_pkey" PRIMARY KEY ("id")
 );
