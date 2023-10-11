@@ -28,9 +28,12 @@ export class VoluntaryRepository implements IVoluntaryRepository {
     return voluntary;
   }
 
-  async findAll({ id, status }: IFindAllVoluntaryDTO): Promise<Voluntary[]> {
+  async findAll({
+    userId,
+    status,
+  }: IFindAllVoluntaryDTO): Promise<Voluntary[]> {
     const volunteers = await this.ctx.prisma.voluntary.findMany({
-      where: { id, status },
+      where: { userId, status },
     });
     return volunteers;
   }
