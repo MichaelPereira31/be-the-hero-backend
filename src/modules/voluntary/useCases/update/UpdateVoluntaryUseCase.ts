@@ -12,8 +12,15 @@ export class UpdateVoluntaryUseCase {
     private readonly voluntaryRepository: IVoluntaryRepository,
   ) {}
 
-  async execute({ id, status }: IUpdateVoluntaryDTO): Promise<Voluntary> {
-    const voluntaryExists = await this.voluntaryRepository.findById(id);
+  async execute({
+    id,
+    status,
+    userId,
+  }: IUpdateVoluntaryDTO): Promise<Voluntary> {
+    const voluntaryExists = await this.voluntaryRepository.findById({
+      id,
+      userId,
+    });
 
     if (!voluntaryExists) {
       throw new AppError('Volunteer not found');
