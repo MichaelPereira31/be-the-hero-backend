@@ -5,11 +5,11 @@ import { DeleteOngUseCase } from './DeleteByIdOngUseCase';
 
 export class DeleteOngController {
   async handle(request: Request, response: Response): Promise<Response> {
-    const { id } = request.params;
+    const userId = request.user.id;
 
     const deleteOngUseCase = container.resolve(DeleteOngUseCase);
 
-    deleteOngUseCase.execute(id);
+    deleteOngUseCase.execute(userId);
 
     return response.status(200).json({ message: 'sucessfully deleted' });
   }
