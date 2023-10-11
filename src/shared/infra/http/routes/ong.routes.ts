@@ -6,6 +6,7 @@ import { FindByIdOngController } from '@modules/ong/useCases/findById/FindByIdOn
 import { FindOngsController } from '@modules/ong/useCases/findOngs/FindOngsController';
 import { UpdateOngController } from '@modules/ong/useCases/update/UpdateOngController';
 
+import { isActive } from '../middlewares/isActive';
 import { isAuthenticate } from '../middlewares/isAuthenticate';
 
 const ongRoutes = Router();
@@ -20,10 +21,10 @@ ongRoutes.get('/:id', isAuthenticate, findOngByIdController.handle);
 
 ongRoutes.get('/', isAuthenticate, findOngsController.handle);
 
-ongRoutes.post('/', isAuthenticate, createOngController.handle);
+ongRoutes.post('/', isAuthenticate, isActive, createOngController.handle);
 
-ongRoutes.put('/:id', isAuthenticate, updateOngController.handle);
+ongRoutes.put('/', isAuthenticate, isActive, updateOngController.handle);
 
-ongRoutes.delete('/:id', isAuthenticate, deleteOngController.handle);
+ongRoutes.delete('/', isAuthenticate, isActive, deleteOngController.handle);
 
 export { ongRoutes };
