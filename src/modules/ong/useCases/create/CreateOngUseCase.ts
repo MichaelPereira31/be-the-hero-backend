@@ -3,6 +3,7 @@ import { inject, injectable } from 'tsyringe';
 import { ICreateOngDTO } from '@modules/ong/dtos/ICreateOngDTO';
 import { IOngRepository } from '@modules/ong/repository/IOngRepository';
 import { IUserRepository } from '@modules/user/repositories/IUserRepository';
+import { AppError } from '@shared/infra/errors/AppError';
 
 @injectable()
 export class CreateOngUseCase {
@@ -22,6 +23,14 @@ export class CreateOngUseCase {
     secondaryEmail,
     userId,
   }: ICreateOngDTO) {
+    const user = await this.userRepository.findById(userId);
+
+    if (!user.addressId || !user.avatar) {
+      throw new AppError(
+        'Check if your address or avatar is filled in correctly',
+      );
+    }
+
     const ong = await this.ongRepository.create({
       name,
       description,
