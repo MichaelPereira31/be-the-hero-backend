@@ -15,7 +15,7 @@ export class AuthenticateUseCase {
     @inject('UserRepository') private readonly userRepository: UserRepository,
   ) {}
 
-  async execute({ password, email }: IAuthenticateDTO): Promise<string> {
+  async execute({ password, email }: IAuthenticateDTO) {
     const user = await this.userRepository.findByEmail(email);
 
     if (!user) {
@@ -41,6 +41,6 @@ export class AuthenticateUseCase {
       },
     );
 
-    return token;
+    return { token, isComplete: !!user.addressId };
   }
 }
