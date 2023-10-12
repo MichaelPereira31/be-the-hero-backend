@@ -11,7 +11,7 @@ import express from 'express';
 import { logger } from '../../providers/logger/implementations/LoggerProvider';
 
 import { getErrors } from '../errors/getErrors';
-import responseFormatter from './middlewares/responseFormatter';
+// import responseFormatter from './middlewares/responseFormatter';
 import { router } from './routes';
 
 import '../../containers';
@@ -27,7 +27,7 @@ app.use((req, res, next) => {
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(responseFormatter);
+// app.use(responseFormatter);
 app.use(router);
 app.use(getErrors);
 
