@@ -8,11 +8,10 @@ import 'reflect-metadata';
 import 'express-async-errors';
 import express from 'express';
 
-import cors from 'cors';
 import { logger } from '../../providers/logger/implementations/LoggerProvider';
 
 import { getErrors } from '../errors/getErrors';
-// import responseFormatter from './middlewares/responseFormatter';
+import responseFormatter from './middlewares/responseFormatter';
 import { router } from './routes';
 
 import '../../containers';
@@ -28,10 +27,9 @@ app.use((req, res, next) => {
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-// app.use(responseFormatter);
+app.use(responseFormatter);
 app.use(router);
 app.use(getErrors);
-app.use(cors());
 
 app.listen(process.env.PORT, () =>
   logger.info(`Server is running on port ${process.env.PORT}`),
