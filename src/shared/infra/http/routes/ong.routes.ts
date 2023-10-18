@@ -17,11 +17,11 @@ const createOngController = new CreateOngController();
 const updateOngController = new UpdateOngController();
 const deleteOngController = new DeleteOngController();
 
-ongRoutes.get('/:id', isAuthenticate, findOngByIdController.handle);
+ongRoutes.get('/:id', isAuthenticate, isActive, findOngByIdController.handle);
 
-ongRoutes.get('/', isAuthenticate, findOngsController.handle);
+ongRoutes.get('/', isAuthenticate, isActive, findOngsController.handle);
 
-ongRoutes.post('/', isAuthenticate, isActive, createOngController.handle);
+ongRoutes.post('/', isAuthenticate, createOngController.handle);
 
 ongRoutes.put('/', isAuthenticate, isActive, updateOngController.handle);
 
