@@ -23,13 +23,9 @@ export class CreateOngUseCase {
     secondaryEmail,
     userId,
   }: ICreateOngDTO) {
-    const user = await this.userRepository.findById(userId);
+    const alreadyHasOng = await this.ongRepository.findByUserId(userId);
 
-    if (!user.addressId || !user.avatar) {
-      throw new AppError(
-        'Check if your address or avatar is filled in correctly',
-      );
-    }
+    if (alreadyHasOng) throw new AppError('Você já cadastrou uma ong.');
 
     const ong = await this.ongRepository.create({
       name,
