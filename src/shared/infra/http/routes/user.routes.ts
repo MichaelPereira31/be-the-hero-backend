@@ -1,6 +1,7 @@
 import { Router } from 'express';
 
 import { AuthenticateController } from '@modules/user/useCases/authenticate/AuthenticateController';
+import authenticateSchema from '@modules/user/useCases/authenticate/validation';
 import { CreateUserController } from '@modules/user/useCases/create/CreateUserController';
 import createUserSchema from '@modules/user/useCases/create/validation';
 import { DeleteUserController } from '@modules/user/useCases/delete/DeleteUserController';
@@ -21,7 +22,11 @@ const deleteUserController = new DeleteUserController();
 
 userRoutes.get('/', isAuthenticate, findUserByIdController.handle);
 
-userRoutes.post('/authenticate', authenticateUserController.handle);
+userRoutes.post(
+  '/authenticate',
+  validation(authenticateSchema),
+  authenticateUserController.handle,
+);
 
 userRoutes.post('/', validation(createUserSchema), createUserController.handle);
 
