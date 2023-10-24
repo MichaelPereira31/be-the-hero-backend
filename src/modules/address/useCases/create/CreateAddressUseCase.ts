@@ -15,6 +15,7 @@ export class CreateAddressUseCase {
   async execute({
     userId,
     street,
+    state,
     number,
     neighborhood,
     city,
@@ -23,6 +24,7 @@ export class CreateAddressUseCase {
   }: ICreateAddressDTO): Promise<Address> {
     const address = await this.addressRepository.create({
       street,
+      state,
       number,
       neighborhood,
       city,

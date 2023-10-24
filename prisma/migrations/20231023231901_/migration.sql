@@ -4,6 +4,7 @@ CREATE TYPE "statusVoluntary" AS ENUM ('accepted', 'waiting', 'canceled', 'expir
 -- CreateTable
 CREATE TABLE "address" (
     "id" TEXT NOT NULL,
+    "state" TEXT NOT NULL,
     "street" TEXT NOT NULL,
     "number" TEXT NOT NULL,
     "neighborhood" TEXT NOT NULL,

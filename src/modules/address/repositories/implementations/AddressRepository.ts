@@ -17,6 +17,7 @@ export class AddressRepository implements IAddressRepository {
   async create({
     street,
     number,
+    state,
     neighborhood,
     city,
     complement,
@@ -26,6 +27,7 @@ export class AddressRepository implements IAddressRepository {
       data: {
         street,
         number,
+        state,
         neighborhood,
         city,
         complement,
@@ -39,6 +41,7 @@ export class AddressRepository implements IAddressRepository {
   async update({
     id,
     street,
+    state,
     number,
     neighborhood,
     city,
@@ -50,6 +53,7 @@ export class AddressRepository implements IAddressRepository {
       data: {
         street,
         number,
+        state,
         neighborhood,
         city,
         complement,

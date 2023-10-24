@@ -7,6 +7,7 @@ const updateAddressSchema = object({
   body: object({
     street: string(),
     number: string(),
+    state: string(),
     neighborhood: string(),
     city: string(),
     complement: string(),

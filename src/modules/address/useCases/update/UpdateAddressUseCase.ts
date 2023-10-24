@@ -15,6 +15,7 @@ export class UpdateAddressUseCase {
     id,
     street,
     number,
+    state,
     neighborhood,
     city,
     complement,
@@ -29,6 +30,7 @@ export class UpdateAddressUseCase {
     const updateAddress = await this.addressRepository.update({
       id,
       street,
+      state,
       number,
       neighborhood,
       city,

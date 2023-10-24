@@ -41,6 +41,11 @@ export class AuthenticateUseCase {
       },
     );
 
-    return { token, isComplete: !!user.addressId };
+    return {
+      token,
+      isComplete: !!user.addressId,
+      type: user.type,
+      userId: user.id,
+    };
   }
 }
