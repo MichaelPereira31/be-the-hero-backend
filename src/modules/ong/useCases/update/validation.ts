@@ -8,14 +8,8 @@ const updateOngSchema = object({
     name: string(),
     description: string(),
     objective: string(),
-    mainPhone: string().matches(
-      /^\d{10}$/,
-      'O campo "mainPhone" deve conter exatamente 10 dígitos numéricos.',
-    ),
-    secondaryPhone: string().matches(
-      /^\d{10}$/,
-      'O campo "secondaryPhone" deve conter exatamente 10 dígitos numéricos.',
-    ),
+    mainPhone: string(),
+    secondaryPhone: string(),
     mainEmail: string().email(
       'O campo "mainEmail" deve ser um endereço de e-mail válido.',
     ),
