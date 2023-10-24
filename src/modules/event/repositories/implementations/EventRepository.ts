@@ -12,6 +12,12 @@ export class EventRepository implements IEventRepository {
     },
   ) {}
 
+  async findAll(): Promise<Event[]> {
+    const events = await this.ctx.prisma.event.findMany();
+
+    return events;
+  }
+
   async findById(id: string): Promise<Event | null> {
     const event = await this.ctx.prisma.event.findUnique({ where: { id } });
     return event;

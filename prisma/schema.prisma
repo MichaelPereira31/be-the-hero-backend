@@ -12,6 +12,7 @@ datasource db {
 
 model Address {
   id           String   @id @default(uuid())
+  state        String
   street       String
   number       String
   neighborhood String

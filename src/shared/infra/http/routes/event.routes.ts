@@ -4,6 +4,7 @@ import { CreateEventController } from '@modules/event/useCases/create/CreateEven
 import createEventSchema from '@modules/event/useCases/create/validation';
 import { DeleteEventController } from '@modules/event/useCases/delete/DeleteEventController';
 import deleteEventSchema from '@modules/event/useCases/delete/validation';
+import { FindAllEventController } from '@modules/event/useCases/findAll/FindByIdEventController';
 import { FindByIdEventController } from '@modules/event/useCases/findById/FindByIdEventController';
 import findByIdEventSchema from '@modules/event/useCases/findById/validation';
 import { UpdateEventController } from '@modules/event/useCases/update/UpdateEventController';
@@ -16,9 +17,12 @@ import { validation } from '../middlewares/validation';
 const eventRoutes = Router();
 
 const findEventByIdController = new FindByIdEventController();
+const findEventAllController = new FindAllEventController();
 const createEventController = new CreateEventController();
 const updateEventController = new UpdateEventController();
 const deleteEventController = new DeleteEventController();
+
+eventRoutes.get('/', findEventAllController.handle);
 
 eventRoutes.get(
   '/:id',
