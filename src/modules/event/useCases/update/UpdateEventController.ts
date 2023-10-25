@@ -6,7 +6,7 @@ import { UpdateEventUseCase } from './UpdateEventUseCase';
 export class UpdateEventController {
   async handle(request: Request, response: Response): Promise<Response> {
     const { id } = request.params;
-    const { name, description, category } = request.body;
+    const { name, description, category, avatar, subject } = request.body;
 
     const updateEventUseCase = container.resolve(UpdateEventUseCase);
 
@@ -14,6 +14,8 @@ export class UpdateEventController {
       name,
       description,
       category,
+      avatar,
+      subject,
       id,
     });
 

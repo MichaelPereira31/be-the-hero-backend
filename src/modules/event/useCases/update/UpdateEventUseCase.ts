@@ -16,6 +16,8 @@ export class UpdateEventUseCase {
     category,
     description,
     name,
+    avatar,
+    subject,
     id,
   }: IUpdateEventDTO): Promise<Event> {
     const eventAlreadyExists = await this.eventRepository.findById(id);
@@ -27,6 +29,8 @@ export class UpdateEventUseCase {
     const event = await this.eventRepository.update({
       name,
       description,
+      avatar,
+      subject,
       id,
       category,
     });

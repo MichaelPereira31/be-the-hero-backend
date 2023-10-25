@@ -54,7 +54,9 @@ CREATE TABLE "user" (
 -- CreateTable
 CREATE TABLE "event" (
     "id" TEXT NOT NULL,
+    "avatar" TEXT NOT NULL,
     "name" TEXT NOT NULL,
+    "subject" TEXT NOT NULL,
     "description" TEXT NOT NULL,
     "category" TEXT NOT NULL,
     "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,

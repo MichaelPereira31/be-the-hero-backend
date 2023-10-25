@@ -19,6 +19,8 @@ export class CreateEventUseCase {
     category,
     description,
     name,
+    avatar,
+    subject,
     userId,
     userType,
   }: ICreateEventDTO): Promise<Event> {
@@ -31,6 +33,8 @@ export class CreateEventUseCase {
     const event = await this.eventRepository.create({
       name,
       description,
+      avatar,
+      subject,
       userId,
       category,
       userType,

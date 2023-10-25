@@ -67,7 +67,9 @@ model User {
 
 model Event {
   id          String      @id @default(uuid())
+  avatar      String
   name        String
+  subject     String
   description String
   category    String
   createdAt   DateTime    @default(now()) @map("created_at")
