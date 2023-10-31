@@ -1,10 +1,11 @@
 import { inject, injectable } from 'tsyringe';
 
-import { ICreateUserDTO } from '@modules/user/dtos/ICreateUserDTO';
-import { IUserRepository } from '@modules/user/repositories/IUserRepository';
 import { User } from '@prisma/client';
-import { AppError } from '@shared/infra/errors/AppError';
-import { encrypt } from '@shared/utils/encrypt';
+
+import { AppError } from '../../../../shared/infra/errors/AppError';
+import { encrypt } from '../../../../shared/utils/encrypt';
+import { ICreateUserDTO } from '../../dtos/ICreateUserDTO';
+import { IUserRepository } from '../../repositories/IUserRepository';
 
 @injectable()
 export class CreateUserUseCase {

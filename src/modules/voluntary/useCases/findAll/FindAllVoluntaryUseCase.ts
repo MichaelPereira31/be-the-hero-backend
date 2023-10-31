@@ -1,9 +1,10 @@
 import { inject, injectable } from 'tsyringe';
 
-import { IFindAllVoluntaryDTO } from '@modules/voluntary/dtos/IFindAllVoluntaryDTO';
-import { IVoluntaryRepository } from '@modules/voluntary/repositories/IVoluntaryRepository';
 import { Voluntary } from '@prisma/client';
-import { AppError } from '@shared/infra/errors/AppError';
+
+import { AppError } from '../../../../shared/infra/errors/AppError';
+import { IFindAllVoluntaryDTO } from '../../dtos/IFindAllVoluntaryDTO';
+import { IVoluntaryRepository } from '../../repositories/IVoluntaryRepository';
 
 @injectable()
 export class FindAllVoluntaryUseCase {

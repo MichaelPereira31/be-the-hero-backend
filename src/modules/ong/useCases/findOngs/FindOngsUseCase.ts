@@ -1,8 +1,9 @@
 import { inject, injectable } from 'tsyringe';
 
-import { IFindOngsDTO } from '@modules/ong/dtos/IFindOngsDTO';
-import { IOngRepository } from '@modules/ong/repository/IOngRepository';
 import { Ong } from '@prisma/client';
+
+import { IFindOngsDTO } from '../../dtos/IFindOngsDTO';
+import { IOngRepository } from '../../repository/IOngRepository';
 
 @injectable()
 export class FindOngsUseCase {

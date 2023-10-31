@@ -1,8 +1,8 @@
 import { inject, injectable } from 'tsyringe';
 
-import { IUpdateAddressDTO } from '@modules/address/dtos/IUpdateAddressDTO';
-import { IAddressRepository } from '@modules/address/repositories/IAddressRepository';
-import { AppError } from '@shared/infra/errors/AppError';
+import { AppError } from '../../../../shared/infra/errors/AppError';
+import { IUpdateAddressDTO } from '../../dtos/IUpdateAddressDTO';
+import { IAddressRepository } from '../../repositories/IAddressRepository';
 
 @injectable()
 export class UpdateAddressUseCase {

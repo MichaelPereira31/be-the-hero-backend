@@ -1,8 +1,9 @@
 import { inject, injectable } from 'tsyringe';
 
-import { IOngRepository } from '@modules/ong/repository/IOngRepository';
 import { Ong } from '@prisma/client';
-import { AppError } from '@shared/infra/errors/AppError';
+
+import { AppError } from '../../../../shared/infra/errors/AppError';
+import { IOngRepository } from '../../repository/IOngRepository';
 
 @injectable()
 export class FindByIdOngUseCase {

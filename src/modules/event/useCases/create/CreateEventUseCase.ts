@@ -1,10 +1,11 @@
 import { inject, injectable } from 'tsyringe';
 
-import { ICreateEventDTO } from '@modules/event/dtos/ICreateEventDTO';
-import { IEventRepository } from '@modules/event/repositories/IEventRepository';
-import { IUserRepository } from '@modules/user/repositories/IUserRepository';
 import { Event } from '@prisma/client';
-import { AppError } from '@shared/infra/errors/AppError';
+
+import { AppError } from '../../../../shared/infra/errors/AppError';
+import { IUserRepository } from '../../../user/repositories/IUserRepository';
+import { ICreateEventDTO } from '../../dtos/ICreateEventDTO';
+import { IEventRepository } from '../../repositories/IEventRepository';
 
 @injectable()
 export class CreateEventUseCase {

@@ -1,7 +1,7 @@
 import { inject, injectable } from 'tsyringe';
 
-import { IAddressRepository } from '@modules/address/repositories/IAddressRepository';
-import { AppError } from '@shared/infra/errors/AppError';
+import { AppError } from '../../../../shared/infra/errors/AppError';
+import { IAddressRepository } from '../../repositories/IAddressRepository';
 
 @injectable()
 export class DeleteAddressUseCase {

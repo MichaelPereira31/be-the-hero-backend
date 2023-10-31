@@ -1,7 +1,8 @@
 import { inject, injectable } from 'tsyringe';
 
-import { IEventRepository } from '@modules/event/repositories/IEventRepository';
 import { Event } from '@prisma/client';
+
+import { IEventRepository } from '../../repositories/IEventRepository';
 
 @injectable()
 export class FindAllEventUseCase {

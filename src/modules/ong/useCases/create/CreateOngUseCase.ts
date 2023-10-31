@@ -1,9 +1,9 @@
 import { inject, injectable } from 'tsyringe';
 
-import { ICreateOngDTO } from '@modules/ong/dtos/ICreateOngDTO';
-import { IOngRepository } from '@modules/ong/repository/IOngRepository';
-import { IUserRepository } from '@modules/user/repositories/IUserRepository';
-import { AppError } from '@shared/infra/errors/AppError';
+import { AppError } from '../../../../shared/infra/errors/AppError';
+import { IUserRepository } from '../../../user/repositories/IUserRepository';
+import { ICreateOngDTO } from '../../dtos/ICreateOngDTO';
+import { IOngRepository } from '../../repository/IOngRepository';
 
 @injectable()
 export class CreateOngUseCase {

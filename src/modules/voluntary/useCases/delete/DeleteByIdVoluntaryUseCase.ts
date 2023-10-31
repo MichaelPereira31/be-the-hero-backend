@@ -1,8 +1,8 @@
 import { inject, injectable } from 'tsyringe';
 
-import { IDeleteVoluntaryDTO } from '@modules/voluntary/dtos/IDeleteVoluntaryDTO';
-import { IVoluntaryRepository } from '@modules/voluntary/repositories/IVoluntaryRepository';
-import { AppError } from '@shared/infra/errors/AppError';
+import { AppError } from '../../../../shared/infra/errors/AppError';
+import { IDeleteVoluntaryDTO } from '../../dtos/IDeleteVoluntaryDTO';
+import { IVoluntaryRepository } from '../../repositories/IVoluntaryRepository';
 
 @injectable()
 export class DeleteByIdVoluntaryUseCase {

@@ -1,15 +1,14 @@
 import { Router } from 'express';
 
-import { CreateOngController } from '@modules/ong/useCases/create/CreateOngController';
-import createOngSchema from '@modules/ong/useCases/create/validation';
-import { DeleteOngController } from '@modules/ong/useCases/delete/DeleteOngController';
-import { FindByIdOngController } from '@modules/ong/useCases/findById/FindByIdOngController';
-import findByIdOngSchema from '@modules/ong/useCases/findById/validation';
-import { FindOngsController } from '@modules/ong/useCases/findOngs/FindOngsController';
-import findOngSchema from '@modules/ong/useCases/findOngs/validation';
-import { UpdateOngController } from '@modules/ong/useCases/update/UpdateOngController';
-import updateOngSchema from '@modules/ong/useCases/update/validation';
-
+import { CreateOngController } from '../../../../modules/ong/useCases/create/CreateOngController';
+import createOngSchema from '../../../../modules/ong/useCases/create/validation';
+import { DeleteOngController } from '../../../../modules/ong/useCases/delete/DeleteOngController';
+import { FindByIdOngController } from '../../../../modules/ong/useCases/findById/FindByIdOngController';
+import findByIdOngSchema from '../../../../modules/ong/useCases/findById/validation';
+import { FindOngsController } from '../../../../modules/ong/useCases/findOngs/FindOngsController';
+import findOngSchema from '../../../../modules/ong/useCases/findOngs/validation';
+import { UpdateOngController } from '../../../../modules/ong/useCases/update/UpdateOngController';
+import updateOngSchema from '../../../../modules/ong/useCases/update/validation';
 import { isActive } from '../middlewares/isActive';
 import { isAuthenticate } from '../middlewares/isAuthenticate';
 import { validation } from '../middlewares/validation';

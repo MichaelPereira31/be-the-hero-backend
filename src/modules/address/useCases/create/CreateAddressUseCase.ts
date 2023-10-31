@@ -1,9 +1,10 @@
 import { inject, injectable } from 'tsyringe';
 
-import { ICreateAddressDTO } from '@modules/address/dtos/ICreateAddressDTO';
-import { IAddressRepository } from '@modules/address/repositories/IAddressRepository';
-import { IUserRepository } from '@modules/user/repositories/IUserRepository';
 import { Address } from '@prisma/client';
+
+import { IUserRepository } from '../../../user/repositories/IUserRepository';
+import { ICreateAddressDTO } from '../../dtos/ICreateAddressDTO';
+import { IAddressRepository } from '../../repositories/IAddressRepository';
 
 @injectable()
 export class CreateAddressUseCase {

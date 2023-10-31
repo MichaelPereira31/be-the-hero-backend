@@ -1,11 +1,11 @@
-import { ICreateVoluntaryDTO } from '@modules/voluntary/dtos/ICreateVoluntaryDTO';
-import { IFindAllVoluntaryDTO } from '@modules/voluntary/dtos/IFindAllVoluntaryDTO';
-import { IFindByEventIdAndUserIdDTO } from '@modules/voluntary/dtos/IFindByEventIdAndUserIdDTO';
-import { IFindByIdVoluntaryDTO } from '@modules/voluntary/dtos/IFindByIdVoluntaryDTO';
-import { IUpdateVoluntaryDTO } from '@modules/voluntary/dtos/IUpdateVoluntaryDTO';
 import { Voluntary } from '@prisma/client';
-import prismaClient from '@shared/infra/database';
 
+import prismaClient from '../../../../shared/infra/database';
+import { ICreateVoluntaryDTO } from '../../dtos/ICreateVoluntaryDTO';
+import { IFindAllVoluntaryDTO } from '../../dtos/IFindAllVoluntaryDTO';
+import { IFindByEventIdAndUserIdDTO } from '../../dtos/IFindByEventIdAndUserIdDTO';
+import { IFindByIdVoluntaryDTO } from '../../dtos/IFindByIdVoluntaryDTO';
+import { IUpdateVoluntaryDTO } from '../../dtos/IUpdateVoluntaryDTO';
 import { IVoluntaryRepository } from '../IVoluntaryRepository';
 
 export class VoluntaryRepository implements IVoluntaryRepository {

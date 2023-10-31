@@ -1,15 +1,14 @@
 import { Router } from 'express';
 
-import { CreateVoluntaryController } from '@modules/voluntary/useCases/create/CreateVoluntaryController';
-import createVoluntarySchema from '@modules/voluntary/useCases/create/validation';
-import { DeleteVoluntaryController } from '@modules/voluntary/useCases/delete/DeleteVoluntaryController';
-import { FindAllVoluntaryController } from '@modules/voluntary/useCases/findAll/FindAllVoluntaryController';
-import findAllVoluntarySchema from '@modules/voluntary/useCases/findAll/validation';
-import { FindByIdVoluntaryController } from '@modules/voluntary/useCases/findById/FindByIdVoluntaryController';
-import findByIdVoluntarySchema from '@modules/voluntary/useCases/findById/validation';
-import { UpdateVoluntaryController } from '@modules/voluntary/useCases/update/UpdateVoluntaryController';
-import updateVoluntarySchema from '@modules/voluntary/useCases/update/validation';
-
+import { CreateVoluntaryController } from '../../../../modules/voluntary/useCases/create/CreateVoluntaryController';
+import createVoluntarySchema from '../../../../modules/voluntary/useCases/create/validation';
+import { DeleteVoluntaryController } from '../../../../modules/voluntary/useCases/delete/DeleteVoluntaryController';
+import { FindAllVoluntaryController } from '../../../../modules/voluntary/useCases/findAll/FindAllVoluntaryController';
+import findAllVoluntarySchema from '../../../../modules/voluntary/useCases/findAll/validation';
+import { FindByIdVoluntaryController } from '../../../../modules/voluntary/useCases/findById/FindByIdVoluntaryController';
+import findByIdVoluntarySchema from '../../../../modules/voluntary/useCases/findById/validation';
+import { UpdateVoluntaryController } from '../../../../modules/voluntary/useCases/update/UpdateVoluntaryController';
+import updateVoluntarySchema from '../../../../modules/voluntary/useCases/update/validation';
 import { isAuthenticate } from '../middlewares/isAuthenticate';
 import { validation } from '../middlewares/validation';
 

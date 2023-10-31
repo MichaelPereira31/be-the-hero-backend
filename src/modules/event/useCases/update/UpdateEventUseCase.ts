@@ -1,9 +1,10 @@
 import { inject, injectable } from 'tsyringe';
 
-import { IUpdateEventDTO } from '@modules/event/dtos/IUpdateEventDTO';
-import { IEventRepository } from '@modules/event/repositories/IEventRepository';
 import { Event } from '@prisma/client';
-import { AppError } from '@shared/infra/errors/AppError';
+
+import { AppError } from '../../../../shared/infra/errors/AppError';
+import { IUpdateEventDTO } from '../../dtos/IUpdateEventDTO';
+import { IEventRepository } from '../../repositories/IEventRepository';
 
 @injectable()
 export class UpdateEventUseCase {

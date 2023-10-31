@@ -1,9 +1,9 @@
-import { ICreateOngDTO } from '@modules/ong/dtos/ICreateOngDTO';
-import { IFindOngsDTO } from '@modules/ong/dtos/IFindOngsDTO';
-import { IUpdateOngDTO } from '@modules/ong/dtos/IUpdateOngDTO';
 import { Ong } from '@prisma/client';
-import prismaClient from '@shared/infra/database';
 
+import prismaClient from '../../../../shared/infra/database';
+import { ICreateOngDTO } from '../../dtos/ICreateOngDTO';
+import { IFindOngsDTO } from '../../dtos/IFindOngsDTO';
+import { IUpdateOngDTO } from '../../dtos/IUpdateOngDTO';
 import { IOngRepository } from '../IOngRepository';
 
 export class OngRepository implements IOngRepository {

@@ -1,14 +1,13 @@
 import { Router } from 'express';
 
-import { CreateAddressController } from '@modules/address/useCases/create/CreateAddressController';
-import createAddressSchema from '@modules/address/useCases/create/validation';
-import { DeleteAddressController } from '@modules/address/useCases/delete/DeleteAddressController';
-import deleteAddressSchema from '@modules/address/useCases/delete/validation';
-import { FindByIdAddressController } from '@modules/address/useCases/findById/FindByIdAddressController';
-import findByIdAddressSchema from '@modules/address/useCases/findById/validation';
-import { UpdateAddressController } from '@modules/address/useCases/update/UpdateAddressController';
-import updateAddressSchema from '@modules/address/useCases/update/validation';
-
+import { CreateAddressController } from '../../../../modules/address/useCases/create/CreateAddressController';
+import createAddressSchema from '../../../../modules/address/useCases/create/validation';
+import { DeleteAddressController } from '../../../../modules/address/useCases/delete/DeleteAddressController';
+import deleteAddressSchema from '../../../../modules/address/useCases/delete/validation';
+import { FindByIdAddressController } from '../../../../modules/address/useCases/findById/FindByIdAddressController';
+import findByIdAddressSchema from '../../../../modules/address/useCases/findById/validation';
+import { UpdateAddressController } from '../../../../modules/address/useCases/update/UpdateAddressController';
+import updateAddressSchema from '../../../../modules/address/useCases/update/validation';
 import { isAuthenticate } from '../middlewares/isAuthenticate';
 import { validation } from '../middlewares/validation';
 

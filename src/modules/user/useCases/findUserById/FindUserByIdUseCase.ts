@@ -1,8 +1,9 @@
 import { inject, injectable } from 'tsyringe';
 
-import { IUserRepository } from '@modules/user/repositories/IUserRepository';
 import { User } from '@prisma/client';
-import { AppError } from '@shared/infra/errors/AppError';
+
+import { AppError } from '../../../../shared/infra/errors/AppError';
+import { IUserRepository } from '../../repositories/IUserRepository';
 
 @injectable()
 export class FindUserByIdUseCase {

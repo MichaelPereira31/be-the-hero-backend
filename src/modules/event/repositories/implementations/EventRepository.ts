@@ -1,8 +1,8 @@
-import { ICreateEventDTO } from '@modules/event/dtos/ICreateEventDTO';
-import { IUpdateEventDTO } from '@modules/event/dtos/IUpdateEventDTO';
 import { Event } from '@prisma/client';
-import prismaClient from '@shared/infra/database';
 
+import prismaClient from '../../../../shared/infra/database';
+import { ICreateEventDTO } from '../../dtos/ICreateEventDTO';
+import { IUpdateEventDTO } from '../../dtos/IUpdateEventDTO';
 import { IEventRepository } from '../IEventRepository';
 
 export class EventRepository implements IEventRepository {

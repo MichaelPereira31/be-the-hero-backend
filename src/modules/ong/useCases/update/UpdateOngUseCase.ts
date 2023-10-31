@@ -1,8 +1,8 @@
 import { inject, injectable } from 'tsyringe';
 
-import { IUpdateOngDTO } from '@modules/ong/dtos/IUpdateOngDTO';
-import { IOngRepository } from '@modules/ong/repository/IOngRepository';
-import { AppError } from '@shared/infra/errors/AppError';
+import { AppError } from '../../../../shared/infra/errors/AppError';
+import { IUpdateOngDTO } from '../../dtos/IUpdateOngDTO';
+import { IOngRepository } from '../../repository/IOngRepository';
 
 @injectable()
 export class UpdateOngUseCase {
