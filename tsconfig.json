@@ -8,10 +8,6 @@
     "rootDirs": ["src", "tests"],
     "baseUrl": "./src",
     "paths": {
-      // // "@modules/*": ["modules/*"],
-      // "@shared/*": ["shared/*"],
-      // "@errors/*": ["errors/*"],
-      // "@config/*": ["config/*"]
     },
     "typeRoots": [
       "./node_modules/@types",
