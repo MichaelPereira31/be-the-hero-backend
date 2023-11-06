@@ -17,7 +17,7 @@ model Address {
   number       String
   neighborhood String
   city         String
-  complement   String
+  complement   String?
   reference    String
   createdAt    DateTime @default(now()) @map("created_at")
   updatedAt    DateTime @updatedAt @map("updated_at")

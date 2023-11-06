@@ -5,6 +5,6 @@ export type ICreateAddressDTO = {
   number: string;
   neighborhood: string;
   city: string;
-  complement: string;
+  complement?: string;
   reference: string;
 };
