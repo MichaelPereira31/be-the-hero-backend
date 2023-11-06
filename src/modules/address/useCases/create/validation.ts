@@ -7,7 +7,7 @@ const createAddressSchema = object({
     state: string().required('O campo "estado" é obrigatório.'),
     neighborhood: string().required('O campo "bairro" é obrigatório.'),
     city: string().required('O campo "cidade" é obrigatório.'),
-    complement: string(),
+    complement: string().nullable(),
     reference: string().required(
       'O campo "ponto de referência" é obrigatório.',
     ),
