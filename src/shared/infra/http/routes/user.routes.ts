@@ -1,13 +1,13 @@
 import { Router } from 'express';
-import { ActiveUserController } from 'modules/user/useCases/activeUser/ActiveUserController';
-import { RequestActiveUserController } from 'modules/user/useCases/requestActiveUser/RequestActiveUserController';
 
+import { ActiveUserController } from '../../../../modules/user/useCases/activeUser/ActiveUserController';
 import { AuthenticateController } from '../../../../modules/user/useCases/authenticate/AuthenticateController';
 import authenticateSchema from '../../../../modules/user/useCases/authenticate/validation';
 import { CreateUserController } from '../../../../modules/user/useCases/create/CreateUserController';
 import createUserSchema from '../../../../modules/user/useCases/create/validation';
 import { DeleteUserController } from '../../../../modules/user/useCases/delete/DeleteUserController';
 import { FindUserByIdController } from '../../../../modules/user/useCases/findUserById/FindUserByIdController';
+import { RequestActiveUserController } from '../../../../modules/user/useCases/requestActiveUser/RequestActiveUserController';
 import { UpdateUserController } from '../../../../modules/user/useCases/update/UpdateUserController';
 import updateUserSchema from '../../../../modules/user/useCases/update/validation';
 import { isAuthenticate } from '../middlewares/isAuthenticate';

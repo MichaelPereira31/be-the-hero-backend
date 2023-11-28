@@ -1,7 +1,7 @@
-import { sendEmail } from 'shared/utils/sendEmail';
 import { inject, injectable } from 'tsyringe';
 
 import { AppError } from '../../../../shared/infra/errors/AppError';
+import { sendEmail } from '../../../../shared/utils/sendEmail';
 import { UserRepository } from '../../repositories/implementations/UserRepository';
 
 @injectable()

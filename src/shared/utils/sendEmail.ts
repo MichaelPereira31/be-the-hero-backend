@@ -1,6 +1,7 @@
 /* eslint-disable no-template-curly-in-string */
 import nodemailer from 'nodemailer';
-import { logger } from 'shared/providers/logger/implementations/LoggerProvider';
+
+import { logger } from '../providers/logger/implementations/LoggerProvider';
 
 type IRequestDTO = {
   email: string;
