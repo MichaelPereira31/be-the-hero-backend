@@ -24,12 +24,12 @@ const requestActiveUserController = new RequestActiveUserController();
 const activeUserController = new ActiveUserController();
 
 userRoutes.get('/', isAuthenticate, findUserByIdController.handle);
-userRoutes.get('/activate/:id', activeUserController.handle);
 userRoutes.get(
   '/request-active',
   isAuthenticate,
   requestActiveUserController.handle,
 );
+userRoutes.get('/activate/:id', activeUserController.handle);
 
 userRoutes.post(
   '/authenticate',
