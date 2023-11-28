@@ -1,4 +1,6 @@
 import { Router } from 'express';
+import { ActiveUserController } from 'modules/user/useCases/activeUser/ActiveUserController';
+import { RequestActiveUserController } from 'modules/user/useCases/requestActiveUser/RequestActiveUserController';
 
 import { AuthenticateController } from '../../../../modules/user/useCases/authenticate/AuthenticateController';
 import authenticateSchema from '../../../../modules/user/useCases/authenticate/validation';
@@ -18,8 +20,16 @@ const authenticateUserController = new AuthenticateController();
 const createUserController = new CreateUserController();
 const updateUserController = new UpdateUserController();
 const deleteUserController = new DeleteUserController();
+const requestActiveUserController = new RequestActiveUserController();
+const activeUserController = new ActiveUserController();
 
 userRoutes.get('/', isAuthenticate, findUserByIdController.handle);
+userRoutes.get('/activate/:id', activeUserController.handle);
+userRoutes.get(
+  '/request-active',
+  isAuthenticate,
+  requestActiveUserController.handle,
+);
 
 userRoutes.post(
   '/authenticate',
