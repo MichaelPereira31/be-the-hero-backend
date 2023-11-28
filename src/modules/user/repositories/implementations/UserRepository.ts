@@ -55,6 +55,7 @@ export class UserRepository implements IUserRepository {
     email,
     addressId,
     type,
+    status,
   }: IUpdateUserDTO): Promise<User> {
     const user = await this.cxt.prisma.user.update({
       where: { id },
@@ -64,6 +65,7 @@ export class UserRepository implements IUserRepository {
         email,
         addressId,
         type,
+        status,
       },
     });
 

@@ -5,4 +5,5 @@ export type IUpdateUserDTO = {
   email?: string;
   addressId?: string;
   type?: string;
+  status?: string;
 };
