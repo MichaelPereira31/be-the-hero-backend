@@ -1,4 +1,5 @@
 import { Router } from 'express';
+import { UploadFileController } from 'modules/user/useCases/uploadFile/UploadFileController';
 
 import { ActiveUserController } from '../../../../modules/user/useCases/activeUser/ActiveUserController';
 import { AuthenticateController } from '../../../../modules/user/useCases/authenticate/AuthenticateController';
@@ -11,6 +12,7 @@ import { RequestActiveUserController } from '../../../../modules/user/useCases/r
 import { UpdateUserController } from '../../../../modules/user/useCases/update/UpdateUserController';
 import updateUserSchema from '../../../../modules/user/useCases/update/validation';
 import { isAuthenticate } from '../middlewares/isAuthenticate';
+import { uploadFileMiddleware } from '../middlewares/uploadFile';
 import { validation } from '../middlewares/validation';
 
 const userRoutes = Router();
@@ -22,6 +24,7 @@ const updateUserController = new UpdateUserController();
 const deleteUserController = new DeleteUserController();
 const requestActiveUserController = new RequestActiveUserController();
 const activeUserController = new ActiveUserController();
+const uploadFileController = new UploadFileController();
 
 userRoutes.get('/', isAuthenticate, findUserByIdController.handle);
 userRoutes.get(
@@ -38,7 +41,7 @@ userRoutes.post(
 );
 
 userRoutes.post('/', validation(createUserSchema), createUserController.handle);
-
+userRoutes.post('/upload', uploadFileMiddleware, uploadFileController.handle);
 userRoutes.put(
   '/',
   isAuthenticate,
