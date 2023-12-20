@@ -9,7 +9,6 @@ import { FindByIdEventController } from '../../../../modules/event/useCases/find
 import findByIdEventSchema from '../../../../modules/event/useCases/findById/validation';
 import { UpdateEventController } from '../../../../modules/event/useCases/update/UpdateEventController';
 import updateEventSchema from '../../../../modules/event/useCases/update/validation';
-import { isActive } from '../middlewares/isActive';
 import { isAuthenticate } from '../middlewares/isAuthenticate';
 import { validation } from '../middlewares/validation';
 
@@ -33,7 +32,6 @@ eventRoutes.get(
 eventRoutes.post(
   '/',
   isAuthenticate,
-  isActive,
   validation(createEventSchema),
   createEventController.handle,
 );
